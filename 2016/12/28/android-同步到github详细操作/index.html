@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wenergou.top">
-  <title>Tag: 随笔 | 温二狗</title>
+  <title>android 同步到github详细操作 | 温二狗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温二狗">
-<meta property="og:url" content="http://wenergou.top/tags/随笔/index.html">
+  <meta name="description" content="android 同步到github详细操作在使用studio开发的项目过程中有时候我们想将项目发布到github上，以前都是用一种比较麻烦的方式（cmd）进行提交最近发现studio其实是自带这种功能的，终于可以摆脱命令行了。 因为自己也没有做很深的研究，这里就先分享一下通过studio将自己的项目上传到github上的步骤。 两个相关概念：git和github Git是一个开源的分布式版本控制系">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android 同步到github详细操作">
+<meta property="og:url" content="http://wenergou.top/2016/12/28/android-同步到github详细操作/index.html">
 <meta property="og:site_name" content="温二狗">
-<meta property="og:description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+<meta property="og:description" content="android 同步到github详细操作在使用studio开发的项目过程中有时候我们想将项目发布到github上，以前都是用一种比较麻烦的方式（cmd）进行提交最近发现studio其实是自带这种功能的，终于可以摆脱命令行了。 因为自己也没有做很深的研究，这里就先分享一下通过studio将自己的项目上传到github上的步骤。 两个相关概念：git和github Git是一个开源的分布式版本控制系">
+<meta property="og:updated_time" content="2017-10-24T10:35:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="温二狗">
-<meta name="twitter:description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+<meta name="twitter:title" content="android 同步到github详细操作">
+<meta name="twitter:description" content="android 同步到github详细操作在使用studio开发的项目过程中有时候我们想将项目发布到github上，以前都是用一种比较麻烦的方式（cmd）进行提交最近发现studio其实是自带这种功能的，终于可以摆脱命令行了。 因为自己也没有做很深的研究，这里就先分享一下通过studio将自己的项目上传到github上的步骤。 两个相关概念：git和github Git是一个开源的分布式版本控制系">
   
     <link rel="alternative" href="/atom.xml" title="温二狗" type="application/atom+xml">
   
@@ -168,174 +170,226 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-android-同步到github详细操作" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      android 同步到github详细操作
+    </h1>
+  
+
+        
+        <a href="/2016/12/28/android-同步到github详细操作/" class="archive-article-date">
+  	<time datetime="2016-12-28T10:25:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-28</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="android-同步到github详细操作"><a href="#android-同步到github详细操作" class="headerlink" title="android 同步到github详细操作"></a>android 同步到github详细操作</h1><p>在使用studio开发的项目过程中有时候我们想将项目发布到github上，以前都是用一种比较麻烦的方式（cmd）进行提交最近发现studio其实是自带这种功能的，终于可以摆脱命令行了。</p>
+<p>因为自己也没有做很深的研究，这里就先分享一下通过studio将自己的项目上传到github上的步骤。</p>
+<p><strong>两个相关概念：git和github</strong></p>
+<p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。分布式相比于集中式的最大区别在于开发者可以提交到本地，每个开发者通过克隆（git clone），在本地机器上拷贝一个完整的Git仓库。</p>
+<p>github作为开源代码库以及版本控制系统，它是一个网站,给用户提供git服务.这样你就不用自己部署git系统直接注册个账号,就可以用他们提供的git服务。GitHub可以托管各种git库，并提供一个web界面，GitHub的独特卖点在于从另外一个项目进行分支的简易性。为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull request”机制向项目负责人申请代码合并。</p>
+<p><strong>准备</strong> </p>
+<p>安装Androidstudio并新建一个工程；</p>
+<p>安装git版本控制系统.如Git GUI；</p>
+<p>在github网站上注册一个账号.</p>
+<p><strong>步骤</strong> </p>
+<ol>
+<li>studio的git配置；</li>
+</ol>
+<p>安装好git后启动Androidstudio，打开如下路径File-&gt;Settings-&gt;Version Control(展开)-&gt;git</p>
+<p>在Path to Git executable后面的输入框输入你安装的git路径，如下图所示：</p>
+<p>点击test按钮如果出现 Git executed successfully 对话框说明配置成功，同时对话框会显示你安装的git版本号；如下图所示</p>
+<ol>
+<li>配置github登录信息；</li>
+</ol>
+<p>打开如下路径File-&gt;Settings-&gt;Version Control(展开)-&gt;GitHub，如下图所示</p>
+<p>填入如下信息：</p>
+<p>Host:github.com</p>
+<p>Login:你的github账户名</p>
+<p>Password：你的github账户密码</p>
+<p>填完之后点击test按钮，如果出现如下对话框说明配置成功</p>
+<ol>
+<li>上传工程到github</li>
+</ol>
+<p>打开你要上传的工程，顶部菜单选择VCS-&gt;Import into Version Control-&gt;Share Project on GitHub,如下图所示：</p>
+<p>如果你是第一次提交该项目会出现如下对话框，提示你这是一个新的存储库（repo），可以自定义repo的名字，和添加描述。</p>
+<p>填写完毕点击share按钮如果你的工程没有问题会出现如下界面</p>
+<p>这里列出了将要提交的类，以及各种资源配置文件等等，点击ok按钮</p>
+<p>输入你的Master password点击ok，如果提交成功studio右上角会提示相关信息</p>
+<p>此时打开你的github网站地址在你的repositories中会看到刚刚提交过的工程名称，点击进去会看到完整的提交工程，到此提交结束</p>
+<h2 id="项目更新"><a href="#项目更新" class="headerlink" title="项目更新"></a>项目更新</h2><p>当项目新增了模块或者模块修改了如何更新github上的项目，其实也很简单。</p>
+<ol>
+<li>如果你的项目新增了一个类，当你创建该类的时候会提示你是否需要加入git，如下图所示</li>
+</ol>
+<p>选择yes该类就会加入git，同时该类本身的颜色会有改变（Darcula主题下由正常的白色变为绿色）</p>
+<p>此时该类右击-&gt;Git-&gt;COmmit File… 出现如下对话框</p>
+<p>填写 commit message 后点击Commit按钮，有可能会出现如下警告，忽略它点击Commit</p>
+<p>再次右击-&gt;Git-&gt;Repository-&gt;Push,如下图所示</p>
+<p>点击Push出现如下对话框，点击Pust按钮</p>
+<p>此时打开你的github上的该项目源码，你会发现新增的类已经出现了</p>
+<ol>
+<li><p>如果你的项目中某个类进行了修改需要重新提交；</p>
+<p>右击该类-&gt;Git-Add</p>
+</li>
+</ol>
+<p>感觉这步没什么变化？其实不是，这步其实是吧该类加入到git中；</p>
+<p>以后的步骤和新增类的操作一样，这里不再赘述。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/23/免费获取知网论文/" class="archive-article-date">
-  	<time datetime="2017-10-23T04:19:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/23/免费获取知网论文/">免费获取知网论文</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://wenergou.top/2016/12/28/android-同步到github详细操作/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/07/神奇的快捷键/" class="archive-article-date">
-  	<time datetime="2017-10-07T11:05:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-07</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2016/12/30/ContentValues详解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ContentValues详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/26/Android-LayoutInfalter详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android LayoutInfalter详解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/07/神奇的快捷键/">神奇的快捷键</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/03/Markdow高级语法学习/" class="archive-article-date">
-  	<time datetime="2017-10-02T18:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/03/Markdow高级语法学习/">Markdown高级语法学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/02/Markdown-语法学习/" class="archive-article-date">
-  	<time datetime="2017-10-02T15:52:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/02/Markdown-语法学习/">Markdown 语法学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -358,9 +412,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

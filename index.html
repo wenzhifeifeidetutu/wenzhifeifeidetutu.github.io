@@ -643,6 +643,474 @@ _   底线
 
 
   
+    <article id="post-PackageManager的功能：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/01/PackageManager的功能：/">PackageManager的功能：</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/01/PackageManager的功能：/" class="archive-article-date">
+  	<time datetime="2017-01-01T10:31:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一"><a href="#一" class="headerlink" title="一"></a>一</h2><ol>
+<li><p>安装，卸载应用 </p>
+</li>
+<li><p>查询permission相关信息 </p>
+</li>
+<li><p>查询Application相关信息(application，activity，receiver，service，provider及相应属性等） </p>
+</li>
+<li><p>查询已安装应用 </p>
+</li>
+<li><p>增加，删除permission</p>
+</li>
+<li><p>清除用户数据、缓存，代码段等 </p>
+</li>
+</ol>
+<h2 id="二、PackageManager相关类和方法介绍："><a href="#二、PackageManager相关类和方法介绍：" class="headerlink" title="二、PackageManager相关类和方法介绍："></a>二、PackageManager相关类和方法介绍：</h2><ol>
+<li>PackageManager类</li>
+</ol>
+<p><strong>复制代码</strong></p>
+<p>说明： 获得已安装的应用程序信息 。可以通过getPackageManager()方法获得。 </p>
+<p>为了验证是否有合适的activity会响应这个intent，需要执行queryIntentActivities() 来获取到能够接收这个intent的所有activity的list。若返回的List非空，那么我们才可以安全的使用这个intent。例如：</p>
+<pre><code>PackageManager packageManager = getPackageManager();List&lt;ResolveInfo&gt; activities = packageManager.queryIntentActivities(intent, 0);boolean isIntentSafe = activities.size() &gt; 0;
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/01/PackageManager的功能：/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ContentValues详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/30/ContentValues详解/">ContentValues详解</a>
+    </h1>
+  
+
+        
+        <a href="/2016/12/30/ContentValues详解/" class="archive-article-date">
+  	<time datetime="2016-12-30T10:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ContentValues详解"><a href="#ContentValues详解" class="headerlink" title="ContentValues详解"></a>ContentValues详解</h1><p>ContentValues 和HashTable类似都是一种存储的机制 但是两者最大的区别就在于，contenvalues只能存储基本类型的数据，像string，int之类的，不能存储对象这种东西，而HashTable却可以存储对象。在数据库操作中</p>
+<pre><code>ContentValues values = new ContentValues();
+
+values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ENTRY_ID, id);
+
+values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_TITLE, title);
+
+values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_CONTENT, content);
+</code></pre><p>在这里我们将要插入的值都放到一个ContentValues的实例当中</p>
+<p>ContentValues initialValues = new ContentValues()语句实例化一个contentValues类。</p>
+<p>initialValues.put（KEY_TITLE, title）语句将列名和对应的列值放置到initialValues里边。</p>
+<p>mDb.insert（DATABASE_TABLE, null,initialValues）</p>
+<p>语句负责插入一条新的纪录，如果插入成功则会返回这条记录的id，如果插入失败会返回-1。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/30/ContentValues详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-android-同步到github详细操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/28/android-同步到github详细操作/">android 同步到github详细操作</a>
+    </h1>
+  
+
+        
+        <a href="/2016/12/28/android-同步到github详细操作/" class="archive-article-date">
+  	<time datetime="2016-12-28T10:25:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="android-同步到github详细操作"><a href="#android-同步到github详细操作" class="headerlink" title="android 同步到github详细操作"></a>android 同步到github详细操作</h1><p>在使用studio开发的项目过程中有时候我们想将项目发布到github上，以前都是用一种比较麻烦的方式（cmd）进行提交最近发现studio其实是自带这种功能的，终于可以摆脱命令行了。</p>
+<p>因为自己也没有做很深的研究，这里就先分享一下通过studio将自己的项目上传到github上的步骤。</p>
+<p><strong>两个相关概念：git和github</strong></p>
+<p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。分布式相比于集中式的最大区别在于开发者可以提交到本地，每个开发者通过克隆（git clone），在本地机器上拷贝一个完整的Git仓库。</p>
+<p>github作为开源代码库以及版本控制系统，它是一个网站,给用户提供git服务.这样你就不用自己部署git系统直接注册个账号,就可以用他们提供的git服务。GitHub可以托管各种git库，并提供一个web界面，GitHub的独特卖点在于从另外一个项目进行分支的简易性。为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull request”机制向项目负责人申请代码合并。</p>
+<p><strong>准备</strong> </p>
+<p>安装Androidstudio并新建一个工程；</p>
+<p>安装git版本控制系统.如Git GUI；</p>
+<p>在github网站上注册一个账号.</p>
+<p><strong>步骤</strong> </p>
+<ol>
+<li>studio的git配置；</li>
+</ol>
+<p>安装好git后启动Androidstudio，打开如下路径File-&gt;Settings-&gt;Version Control(展开)-&gt;git</p>
+<p>在Path to Git executable后面的输入框输入你安装的git路径，如下图所示：</p>
+<p>点击test按钮如果出现 Git executed successfully 对话框说明配置成功，同时对话框会显示你安装的git版本号；如下图所示</p>
+<ol>
+<li>配置github登录信息；</li>
+</ol>
+<p>打开如下路径File-&gt;Settings-&gt;Version Control(展开)-&gt;GitHub，如下图所示</p>
+<p>填入如下信息：</p>
+<p>Host:github.com</p>
+<p>Login:你的github账户名</p>
+<p>Password：你的github账户密码</p>
+<p>填完之后点击test按钮，如果出现如下对话框说明配置成功</p>
+<ol>
+<li>上传工程到github</li>
+</ol>
+<p>打开你要上传的工程，顶部菜单选择VCS-&gt;Import into Version Control-&gt;Share Project on GitHub,如下图所示：</p>
+<p>如果你是第一次提交该项目会出现如下对话框，提示你这是一个新的存储库（repo），可以自定义repo的名字，和添加描述。</p>
+<p>填写完毕点击share按钮如果你的工程没有问题会出现如下界面</p>
+<p>这里列出了将要提交的类，以及各种资源配置文件等等，点击ok按钮</p>
+<p>输入你的Master password点击ok，如果提交成功studio右上角会提示相关信息</p>
+<p>此时打开你的github网站地址在你的repositories中会看到刚刚提交过的工程名称，点击进去会看到完整的提交工程，到此提交结束</p>
+<h2 id="项目更新"><a href="#项目更新" class="headerlink" title="项目更新"></a>项目更新</h2><p>当项目新增了模块或者模块修改了如何更新github上的项目，其实也很简单。</p>
+<ol>
+<li>如果你的项目新增了一个类，当你创建该类的时候会提示你是否需要加入git，如下图所示</li>
+</ol>
+<p>选择yes该类就会加入git，同时该类本身的颜色会有改变（Darcula主题下由正常的白色变为绿色）</p>
+<p>此时该类右击-&gt;Git-&gt;COmmit File… 出现如下对话框</p>
+<p>填写 commit message 后点击Commit按钮，有可能会出现如下警告，忽略它点击Commit</p>
+<p>再次右击-&gt;Git-&gt;Repository-&gt;Push,如下图所示</p>
+<p>点击Push出现如下对话框，点击Pust按钮</p>
+<p>此时打开你的github上的该项目源码，你会发现新增的类已经出现了</p>
+<ol>
+<li><p>如果你的项目中某个类进行了修改需要重新提交；</p>
+<p>右击该类-&gt;Git-Add</p>
+</li>
+</ol>
+<p>感觉这步没什么变化？其实不是，这步其实是吧该类加入到git中；</p>
+<p>以后的步骤和新增类的操作一样，这里不再赘述。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/28/android-同步到github详细操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Android-LayoutInfalter详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/26/Android-LayoutInfalter详解/">Android LayoutInfalter详解</a>
+    </h1>
+  
+
+        
+        <a href="/2016/12/26/Android-LayoutInfalter详解/" class="archive-article-date">
+  	<time datetime="2016-12-26T10:14:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Android-LayoutInflater详解"><a href="#Android-LayoutInflater详解" class="headerlink" title="Android LayoutInflater详解"></a>Android LayoutInflater详解</h1><h2 id="LayoutInflater介绍"><a href="#LayoutInflater介绍" class="headerlink" title="LayoutInflater介绍"></a>LayoutInflater介绍</h2><p>在实际开发中LayoutInflater这个类还是非常有用的，它的作用类似于findViewById()。<br>不同点是LayoutInflater是用来找res/layout/下的xml布局文件，并且实例化；而findViewById()是找xml布局文件下的具体widget控件(如Button、TextView等)。</p>
+<p>具体作用：</p>
+<ul>
+<li><p>对于一个没有被载入或者想要动态载入的界面，都需要使用LayoutInflater.inflate()来载入；</p>
+</li>
+<li><p>对于一个已经载入的界面，就可以使用Activiyt.findViewById()方法来获得其中的界面元素。</p>
+</li>
+</ul>
+<p>LayoutInflater 是一个抽象类，在文档中如下声明：</p>
+<pre><code>public abstract class LayoutInflater extends Object
+</code></pre><p>获得 LayoutInflater 实例的三种方式</p>
+<ul>
+<li><p>LayoutInflater inflater = getLayoutInflater();//调用Activity的getLayoutInflater() </p>
+</li>
+<li><p>LayoutInflater inflater = LayoutInflater.from(context);  </p>
+</li>
+<li><p>LayoutInflater inflater =  (LayoutInflater)context.getSystemService</p>
+<pre><code>(Context.LAYOUT_INFLATER_SERVICE);
+</code></pre></li>
+</ul>
+<p>其实，这三种方式本质是相同的，从源码中可以看出：</p>
+<p>getLayoutInflater()：</p>
+<p>Activity 的 getLayoutInflater() 方法是调用 PhoneWindow 的getLayoutInflater()方法，看一下该源代码：</p>
+<pre><code>public PhoneWindow(Context context)
+
+{   
+
+super(context);   
+
+    mLayoutInflater = LayoutInflater.from(context);
+
+}
+</code></pre><p>可以看出它其实是调用 LayoutInflater.from(context)。</p>
+<pre><code>LayoutInflater.from(context)：
+
+public static LayoutInflater from(Context context)
+
+{   
+
+LayoutInflater LayoutInflater = (LayoutInflater) context.getSystemService
+
+         (Context.LAYOUT_INFLATER_SERVICE);
+
+    if (LayoutInflater == null)
+
+    {       
+
+     throw new AssertionError(&quot;LayoutInflater not found.&quot;);   
+
+    }   
+
+    return LayoutInflater;
+
+}
+</code></pre><p>可以看出它其实调用 context.getSystemService()。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>所以这三种方式最终本质是都是调用的Context.getSystemService()。</p>
+<p>另外getSystemService()是Android很重要的一个API，它是Activity的一个方法，根据传入的NAME来取得对应的Object，然后转换成相应的服务对象。以下介绍系统相应的服务。</p>
+<h2 id="传入的Name-返回的对象说明"><a href="#传入的Name-返回的对象说明" class="headerlink" title="传入的Name 返回的对象说明"></a>传入的Name 返回的对象说明</h2><p>WINDOW_SERVICEWindowManager管理打开的窗口程序</p>
+<p>LAYOUT_INFLATER_SERVICELayoutInflater取得xml里定义的view</p>
+<p>ACTIVITY_SERVICEActivityManager管理应用程序的系统状态</p>
+<p>POWER_SERVICEPowerManger电源的服务</p>
+<p>ALARM_SERVICEAlarmManager闹钟的服务</p>
+<p>NOTIFICATION_SERVICENotificationManager状态栏的服务</p>
+<p>KEYGUARD_SERVICEKeyguardManager键盘锁的服务</p>
+<p>LOCATION_SERVICELocationManager位置的服务，如GPS</p>
+<p>SEARCH_SERVICESearchManager搜索的服务</p>
+<p>VEBRATOR_SERVICEVebrator手机震动的服务</p>
+<p>CONNECTIVITY_SERVICEConnectivity网络连接的服务</p>
+<p>WIFI_SERVICEWifiManagerWi-Fi服务</p>
+<p>TELEPHONY_SERVICETeleponyManager电话服务</p>
+<h2 id="inflate-方法"><a href="#inflate-方法" class="headerlink" title="inflate 方法"></a>inflate 方法</h2><p>通过 sdk 的 api 文档，可以知道该方法有以下几种过载形式，返回值均是 View 对象，如下：</p>
+<pre><code>public View inflate (int resource, ViewGroup root) 
+
+public View inflate (XmlPullParser parser, ViewGroup root)
+
+public View inflate (XmlPullParser parser, ViewGroup root, boolean attachToRoot)  
+
+public View inflate (int resource, ViewGroup root, boolean attachToRoot)
+</code></pre><p>示意代码：</p>
+<pre><code>LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);       
+
+View view = inflater.inflate(R.layout.custom, (ViewGroup)findViewById(R.id.test));       
+
+//EditText editText = (EditText)findViewById(R.id.content);// error
+
+EditText editText = (EditText)view.findViewById(R.id.content);
+</code></pre><p>对于上面代码，指定了第二个参数 ViewGroup root，当然你也可以设置为 null 值。</p>
+<p><strong>注意：</strong></p>
+<p>·inflate 方法与 findViewById 方法不同；</p>
+<p>·inflater 是用来找 res/layout 下的 xml 布局文件，并且实例化；</p>
+<p>·findViewById() 是找具体 xml 布局文件中的具体 widget 控件(如:Button、TextView 等)。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/26/Android-LayoutInfalter详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
@@ -734,6 +1202,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
