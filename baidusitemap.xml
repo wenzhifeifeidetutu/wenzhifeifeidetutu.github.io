@@ -4,6 +4,40 @@
 
     
   <url>
+    <loc>http://wenergou.top/2017/11/19/Mac-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E6%92%AD%E6%94%BE%E5%99%A8/</loc>
+    <lastmod>2017-11-19T01:00:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac 如何设置默认播放器</title>
+        <pubTime>2017-11-19T00:49:55.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wenergou.top/2017/01/01/PackageManager%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%9A/</loc>
+    <lastmod>2017-10-24T11:16:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>PackageManager的功能：</title>
+        <pubTime>2017-01-01T10:31:58.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wenergou.top/2017/10/02/Markdown-%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-10-24T11:16:15.000Z</lastmod>
     <data>
@@ -38,25 +72,8 @@
 
     
   <url>
-    <loc>http://wenergou.top/2017/01/01/PackageManager%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%9A/</loc>
-    <lastmod>2017-10-24T11:15:15.000Z</lastmod>
-    <data>
-        <display>
-        <title>PackageManager的功能：</title>
-        <pubTime>2017-01-01T10:31:58.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wenergou.top/2016/12/30/ContentValues%E8%AF%A6%E8%A7%A3/</loc>
-    <lastmod>2017-10-24T11:14:57.000Z</lastmod>
+    <lastmod>2017-10-24T11:16:05.000Z</lastmod>
     <data>
         <display>
         <title>ContentValues详解</title>
@@ -73,7 +90,7 @@
     
   <url>
     <loc>http://wenergou.top/2016/12/26/Android-LayoutInfalter%E8%AF%A6%E8%A7%A3/</loc>
-    <lastmod>2017-10-24T11:14:48.000Z</lastmod>
+    <lastmod>2017-10-24T11:16:01.000Z</lastmod>
     <data>
         <display>
         <title>Android LayoutInfalter详解</title>

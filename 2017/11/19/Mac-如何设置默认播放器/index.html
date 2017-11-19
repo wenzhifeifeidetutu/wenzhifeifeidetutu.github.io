@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wenergou.top">
-  <title>Android LayoutInfalter详解 | 温二狗</title>
+  <title>Mac 如何设置默认播放器 | 温二狗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android LayoutInflater详解LayoutInflater介绍在实际开发中LayoutInflater这个类还是非常有用的，它的作用类似于findViewById()。不同点是LayoutInflater是用来找res/layout/下的xml布局文件，并且实例化；而findViewById()是找xml布局文件下的具体widget控件(如Button、TextView等)。">
-<meta name="keywords" content="Android">
+  <meta name="description" content="Mac 如何设置默认播放器首先在Finder下面选中文件 右键打开显示简介（快捷键com+i） 选择打开方式 选择你需要的软件， 全部更改就行">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android LayoutInfalter详解">
-<meta property="og:url" content="http://wenergou.top/2016/12/26/Android-LayoutInfalter详解/index.html">
+<meta property="og:title" content="Mac 如何设置默认播放器">
+<meta property="og:url" content="http://wenergou.top/2017/11/19/Mac-如何设置默认播放器/index.html">
 <meta property="og:site_name" content="温二狗">
-<meta property="og:description" content="Android LayoutInflater详解LayoutInflater介绍在实际开发中LayoutInflater这个类还是非常有用的，它的作用类似于findViewById()。不同点是LayoutInflater是用来找res/layout/下的xml布局文件，并且实例化；而findViewById()是找xml布局文件下的具体widget控件(如Button、TextView等)。">
-<meta property="og:updated_time" content="2017-10-24T11:16:01.000Z">
+<meta property="og:description" content="Mac 如何设置默认播放器首先在Finder下面选中文件 右键打开显示简介（快捷键com+i） 选择打开方式 选择你需要的软件， 全部更改就行">
+<meta property="og:image" content="http://wenergou.top/images/Mac默认播放器.png">
+<meta property="og:image" content="http://wenergou.top/images/Mac默认.png">
+<meta property="og:updated_time" content="2017-11-19T01:00:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android LayoutInfalter详解">
-<meta name="twitter:description" content="Android LayoutInflater详解LayoutInflater介绍在实际开发中LayoutInflater这个类还是非常有用的，它的作用类似于findViewById()。不同点是LayoutInflater是用来找res/layout/下的xml布局文件，并且实例化；而findViewById()是找xml布局文件下的具体widget控件(如Button、TextView等)。">
+<meta name="twitter:title" content="Mac 如何设置默认播放器">
+<meta name="twitter:description" content="Mac 如何设置默认播放器首先在Finder下面选中文件 右键打开显示简介（快捷键com+i） 选择打开方式 选择你需要的软件， 全部更改就行">
+<meta name="twitter:image" content="http://wenergou.top/images/Mac默认播放器.png">
   
     <link rel="alternative" href="/atom.xml" title="温二狗" type="application/atom+xml">
   
@@ -170,118 +173,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android-LayoutInfalter详解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Mac-如何设置默认播放器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Android LayoutInfalter详解
+      Mac 如何设置默认播放器
     </h1>
   
 
         
-        <a href="/2016/12/26/Android-LayoutInfalter详解/" class="archive-article-date">
-  	<time datetime="2016-12-26T10:14:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-26</time>
+        <a href="/2017/11/19/Mac-如何设置默认播放器/" class="archive-article-date">
+  	<time datetime="2017-11-19T00:49:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Android-LayoutInflater详解"><a href="#Android-LayoutInflater详解" class="headerlink" title="Android LayoutInflater详解"></a>Android LayoutInflater详解</h1><h2 id="LayoutInflater介绍"><a href="#LayoutInflater介绍" class="headerlink" title="LayoutInflater介绍"></a>LayoutInflater介绍</h2><p>在实际开发中LayoutInflater这个类还是非常有用的，它的作用类似于findViewById()。<br>不同点是LayoutInflater是用来找res/layout/下的xml布局文件，并且实例化；而findViewById()是找xml布局文件下的具体widget控件(如Button、TextView等)。</p>
-<a id="more"></a>
-<p>具体作用：</p>
-<ul>
-<li><p>对于一个没有被载入或者想要动态载入的界面，都需要使用LayoutInflater.inflate()来载入；</p>
-</li>
-<li><p>对于一个已经载入的界面，就可以使用Activiyt.findViewById()方法来获得其中的界面元素。</p>
-</li>
-</ul>
-<p>LayoutInflater 是一个抽象类，在文档中如下声明：</p>
-<pre><code>public abstract class LayoutInflater extends Object
-</code></pre><p>获得 LayoutInflater 实例的三种方式</p>
-<ul>
-<li><p>LayoutInflater inflater = getLayoutInflater();//调用Activity的getLayoutInflater() </p>
-</li>
-<li><p>LayoutInflater inflater = LayoutInflater.from(context);  </p>
-</li>
-<li><p>LayoutInflater inflater =  (LayoutInflater)context.getSystemService</p>
-<pre><code>(Context.LAYOUT_INFLATER_SERVICE);
-</code></pre></li>
-</ul>
-<p>其实，这三种方式本质是相同的，从源码中可以看出：</p>
-<p>getLayoutInflater()：</p>
-<p>Activity 的 getLayoutInflater() 方法是调用 PhoneWindow 的getLayoutInflater()方法，看一下该源代码：</p>
-<pre><code>public PhoneWindow(Context context)
-
-{   
-
-super(context);   
-
-    mLayoutInflater = LayoutInflater.from(context);
-
-}
-</code></pre><p>可以看出它其实是调用 LayoutInflater.from(context)。</p>
-<pre><code>LayoutInflater.from(context)：
-
-public static LayoutInflater from(Context context)
-
-{   
-
-LayoutInflater LayoutInflater = (LayoutInflater) context.getSystemService
-
-         (Context.LAYOUT_INFLATER_SERVICE);
-
-    if (LayoutInflater == null)
-
-    {       
-
-     throw new AssertionError(&quot;LayoutInflater not found.&quot;);   
-
-    }   
-
-    return LayoutInflater;
-
-}
-</code></pre><p>可以看出它其实调用 context.getSystemService()。</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>所以这三种方式最终本质是都是调用的Context.getSystemService()。</p>
-<p>另外getSystemService()是Android很重要的一个API，它是Activity的一个方法，根据传入的NAME来取得对应的Object，然后转换成相应的服务对象。以下介绍系统相应的服务。</p>
-<h2 id="传入的Name-返回的对象说明"><a href="#传入的Name-返回的对象说明" class="headerlink" title="传入的Name 返回的对象说明"></a>传入的Name 返回的对象说明</h2><p>WINDOW_SERVICEWindowManager管理打开的窗口程序</p>
-<p>LAYOUT_INFLATER_SERVICELayoutInflater取得xml里定义的view</p>
-<p>ACTIVITY_SERVICEActivityManager管理应用程序的系统状态</p>
-<p>POWER_SERVICEPowerManger电源的服务</p>
-<p>ALARM_SERVICEAlarmManager闹钟的服务</p>
-<p>NOTIFICATION_SERVICENotificationManager状态栏的服务</p>
-<p>KEYGUARD_SERVICEKeyguardManager键盘锁的服务</p>
-<p>LOCATION_SERVICELocationManager位置的服务，如GPS</p>
-<p>SEARCH_SERVICESearchManager搜索的服务</p>
-<p>VEBRATOR_SERVICEVebrator手机震动的服务</p>
-<p>CONNECTIVITY_SERVICEConnectivity网络连接的服务</p>
-<p>WIFI_SERVICEWifiManagerWi-Fi服务</p>
-<p>TELEPHONY_SERVICETeleponyManager电话服务</p>
-<h2 id="inflate-方法"><a href="#inflate-方法" class="headerlink" title="inflate 方法"></a>inflate 方法</h2><p>通过 sdk 的 api 文档，可以知道该方法有以下几种过载形式，返回值均是 View 对象，如下：</p>
-<pre><code>public View inflate (int resource, ViewGroup root) 
-
-public View inflate (XmlPullParser parser, ViewGroup root)
-
-public View inflate (XmlPullParser parser, ViewGroup root, boolean attachToRoot)  
-
-public View inflate (int resource, ViewGroup root, boolean attachToRoot)
-</code></pre><p>示意代码：</p>
-<pre><code>LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);       
-
-View view = inflater.inflate(R.layout.custom, (ViewGroup)findViewById(R.id.test));       
-
-//EditText editText = (EditText)findViewById(R.id.content);// error
-
-EditText editText = (EditText)view.findViewById(R.id.content);
-</code></pre><p>对于上面代码，指定了第二个参数 ViewGroup root，当然你也可以设置为 null 值。</p>
-<p><strong>注意：</strong></p>
-<p>·inflate 方法与 findViewById 方法不同；</p>
-<p>·inflater 是用来找 res/layout 下的 xml 布局文件，并且实例化；</p>
-<p>·findViewById() 是找具体 xml 布局文件中的具体 widget 控件(如:Button、TextView 等)。</p>
+        <h1 id="Mac-如何设置默认播放器"><a href="#Mac-如何设置默认播放器" class="headerlink" title="Mac 如何设置默认播放器"></a>Mac 如何设置默认播放器</h1><p>首先在Finder下面选中文件 右键打开显示简介（快捷键com+i）<br><img src="/images/Mac默认播放器.png" alt="mac默认"></p>
+<p>选择打开方式 选择你需要的软件， 全部更改就行<br><img src="/images/Mac默认.png" alt="打开方式"></p>
 
       
 
@@ -326,7 +239,7 @@ EditText editText = (EditText)view.findViewById(R.id.content);
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -382,7 +295,7 @@ EditText editText = (EditText)view.findViewById(R.id.content);
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://wenergou.top/2016/12/26/Android-LayoutInfalter详解/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://wenergou.top/2017/11/19/Mac-如何设置默认播放器/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -396,15 +309,11 @@ EditText editText = (EditText)view.findViewById(R.id.content);
   
 <nav id="article-nav">
   
-    <a href="/2016/12/28/android-同步到github详细操作/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          android 同步到github详细操作
-        
-      </div>
-    </a>
   
+    <a href="/2017/10/23/免费获取知网论文/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">免费获取知网论文</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -429,7 +338,7 @@ EditText editText = (EditText)view.findViewById(R.id.content);
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android-LayoutInflater详解"><span class="toc-number">1.</span> <span class="toc-text">Android LayoutInflater详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LayoutInflater介绍"><span class="toc-number">1.1.</span> <span class="toc-text">LayoutInflater介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">1.2.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传入的Name-返回的对象说明"><span class="toc-number">1.3.</span> <span class="toc-text">传入的Name 返回的对象说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inflate-方法"><span class="toc-number">1.4.</span> <span class="toc-text">inflate 方法</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mac-如何设置默认播放器"><span class="toc-number">1.</span> <span class="toc-text">Mac 如何设置默认播放器</span></a></li></ol>
                     </div>
                 </span>
             </div>
