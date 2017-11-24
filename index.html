@@ -232,7 +232,7 @@ print(motorcycle)
 </code></pre><ol>
 <li>插入和删除</li>
 </ol>
-<p>和Java很相似 可以使用append()函数进行尾部追加 或者使用 insert（）函数进行插</p>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><p>和Java很相似 可以使用append()函数进行尾部追加 或者使用 insert（）函数进行插</p>
 <pre><code>motorcycle.append(&apos;jijiji&apos;)
 print(motorcycle)
 motorcycle.insert(0, &apos;haohao&apos;)
@@ -242,8 +242,10 @@ print(motorcycle)
 </code></pre><p>运行结果</p>
 <pre><code>[&apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;, &apos;jijiji&apos;]
 [&apos;haohao&apos;, &apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;, &apos;jijiji&apos;]
-</code></pre><p>删除<br>    删除分两种一种是删除不使用del（） 一种就是有返回函数的删除根据index pop()<br>    根据值来删除remove()</p>
-<pre><code>del motorcycle[-1]
+</code></pre><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><pre><code>删除分两种一种是删除不使用del（） 一种就是有返回函数的删除根据index pop() 
+根据值来删除remove()
+
+del motorcycle[-1]
 print(motorcycle)
 poped_motorcycle = motorcycle.pop(2)
 
@@ -259,7 +261,49 @@ print(motorcycle)
 bmw
 [&apos;haohao&apos;, &apos;juejue&apos;, &apos;tt&apos;, &apos;haohaowei&apos;, &apos;6666&apos;]
 [&apos;haohao&apos;, &apos;juejue&apos;, &apos;haohaowei&apos;, &apos;6666&apos;]
-</code></pre>
+</code></pre><ol>
+<li>排序 </li>
+</ol>
+<ul>
+<li>只是排序输出  使用自带函数 sorted()  </li>
+<li>将list进行排序 使用list名字.sort()</li>
+<li><p>将list进行倒叙排序</p>
+<p>  itufaul_scenic = [‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’, ‘japan’]</p>
+<p>  print(bitufaul_scenic)</p>
+<p>  #print(bitufaul_scenic.sorted())</p>
+<p>  print(sorted(bitufaul_scenic))</p>
+<p>  print(bitufaul_scenic)</p>
+</li>
+</ul>
+<p>倒叙参数</p>
+<pre><code>print(sorted(bitufaul_scenic, reverse = True))
+
+print(bitufaul_scenic)
+</code></pre><p>直接倒叙直接并不是按照字母顺序</p>
+<pre><code>bitufaul_scenic.reverse()
+
+print()
+
+print(bitufaul_scenic)
+
+bitufaul_scenic.reverse()
+
+print(bitufaul_scenic)
+</code></pre><p>sort修改直接修改</p>
+<pre><code>bitufaul_scenic.sort()
+
+print(bitufaul_scenic)
+
+bitufaul_scenic.sort(reverse = True)
+
+print(bitufaul_scenic)
+
+
+print(len(bitufaul_scenic))
+</code></pre><p>运行结果</p>
+<p>[‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’, ‘japan’]<br>[‘japan’, ‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’]<br>[‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’, ‘japan’]<br>[‘zhejiang’, ‘wuzheng’, ‘shanghai’, ‘nanjing’, ‘japan’]<br>[‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’, ‘japan’]</p>
+<p>[‘japan’, ‘zhejiang’, ‘wuzheng’, ‘shanghai’, ‘nanjing’]<br>[‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’, ‘japan’]<br>[‘japan’, ‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’]<br>[‘zhejiang’, ‘wuzheng’, ‘shanghai’, ‘nanjing’, ‘japan’]<br>5</p>
+
       
 
       
@@ -343,28 +387,10 @@ print(message)
 <pre><code>name = &quot;pdd &quot;
 age = 25
 print(name + age)
-</code></pre><p>会报错must be str, not int 必须使用转换str()转换<br>    name = “pdd “<br>    age = 25<br>    print(name + str(age))</p>
-<ol>
-<li>计算</li>
-</ol>
-<p>python中使用计算基本上和其他语言差不多但是浮点数是要注意的比如下面：</p>
-<pre><code>0.2 + 0.2 
-0.2 + 0.1 
-print(0.2 + 0.2)
-print(0.2 + 0.1)
-
-结果
-0.4
-0.30000000000000004
-</code></pre><h2 id="使用python做乘方运算-使用"><a href="#使用python做乘方运算-使用" class="headerlink" title="使用python做乘方运算 使用 **"></a>使用python做乘方运算 使用 **</h2><pre><code>num = 3 ** 5
-</code></pre><p>表示 3^5 = 243</p>
-<h2 id="python-3-和python-2的区别"><a href="#python-3-和python-2的区别" class="headerlink" title="python 3 和python 2的区别"></a>python 3 和python 2的区别</h2><pre><code>3 / 2  3.0 / 2
-</code></pre><p>python 2 中和 普通的其他语言一样都是丢弃小数位<br>    结果为 1， 1.5</p>
-<p>python 3 中则是统一</p>
-<pre><code>3/2 3.0 /2
-
-结果都为 1.5
 </code></pre>
+        
+          <a class="article-more-a" href="/2017/11/24/Python-基础学习/#more">More >></a>
+        
       
 
       

@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://wenergou.top/2017/11/24/python-字符串列表/index.html">
 <meta property="og:site_name" content="温二狗">
 <meta property="og:description" content="列表list 使用  python 中使用 []来定义一个列表列表中可以包含任意信息 string int double 都可以比如： bicycle = [&amp;quot;trek&amp;quot;, &amp;quot;cannondale&amp;quot;, &amp;quot;redline&amp;quot;, &amp;quot;specialized&amp;quot;, 12] 打印列表： print (bicycle)  运行结果 [">
-<meta property="og:updated_time" content="2017-11-24T06:03:14.000Z">
+<meta property="og:updated_time" content="2017-11-24T07:04:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python 字符串列表">
 <meta name="twitter:description" content="列表list 使用  python 中使用 []来定义一个列表列表中可以包含任意信息 string int double 都可以比如： bicycle = [&amp;quot;trek&amp;quot;, &amp;quot;cannondale&amp;quot;, &amp;quot;redline&amp;quot;, &amp;quot;specialized&amp;quot;, 12] 打印列表： print (bicycle)  运行结果 [">
@@ -232,7 +232,7 @@ print(motorcycle)
 </code></pre><ol>
 <li>插入和删除</li>
 </ol>
-<p>和Java很相似 可以使用append()函数进行尾部追加 或者使用 insert（）函数进行插</p>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><p>和Java很相似 可以使用append()函数进行尾部追加 或者使用 insert（）函数进行插</p>
 <pre><code>motorcycle.append(&apos;jijiji&apos;)
 print(motorcycle)
 motorcycle.insert(0, &apos;haohao&apos;)
@@ -242,8 +242,10 @@ print(motorcycle)
 </code></pre><p>运行结果</p>
 <pre><code>[&apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;, &apos;jijiji&apos;]
 [&apos;haohao&apos;, &apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;, &apos;jijiji&apos;]
-</code></pre><p>删除<br>    删除分两种一种是删除不使用del（） 一种就是有返回函数的删除根据index pop()<br>    根据值来删除remove()</p>
-<pre><code>del motorcycle[-1]
+</code></pre><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><pre><code>删除分两种一种是删除不使用del（） 一种就是有返回函数的删除根据index pop() 
+根据值来删除remove()
+
+del motorcycle[-1]
 print(motorcycle)
 poped_motorcycle = motorcycle.pop(2)
 
@@ -259,7 +261,49 @@ print(motorcycle)
 bmw
 [&apos;haohao&apos;, &apos;juejue&apos;, &apos;tt&apos;, &apos;haohaowei&apos;, &apos;6666&apos;]
 [&apos;haohao&apos;, &apos;juejue&apos;, &apos;haohaowei&apos;, &apos;6666&apos;]
-</code></pre>
+</code></pre><ol>
+<li>排序 </li>
+</ol>
+<ul>
+<li>只是排序输出  使用自带函数 sorted()  </li>
+<li>将list进行排序 使用list名字.sort()</li>
+<li><p>将list进行倒叙排序</p>
+<p>  itufaul_scenic = [‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’, ‘japan’]</p>
+<p>  print(bitufaul_scenic)</p>
+<p>  #print(bitufaul_scenic.sorted())</p>
+<p>  print(sorted(bitufaul_scenic))</p>
+<p>  print(bitufaul_scenic)</p>
+</li>
+</ul>
+<p>倒叙参数</p>
+<pre><code>print(sorted(bitufaul_scenic, reverse = True))
+
+print(bitufaul_scenic)
+</code></pre><p>直接倒叙直接并不是按照字母顺序</p>
+<pre><code>bitufaul_scenic.reverse()
+
+print()
+
+print(bitufaul_scenic)
+
+bitufaul_scenic.reverse()
+
+print(bitufaul_scenic)
+</code></pre><p>sort修改直接修改</p>
+<pre><code>bitufaul_scenic.sort()
+
+print(bitufaul_scenic)
+
+bitufaul_scenic.sort(reverse = True)
+
+print(bitufaul_scenic)
+
+
+print(len(bitufaul_scenic))
+</code></pre><p>运行结果</p>
+<p>[‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’, ‘japan’]<br>[‘japan’, ‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’]<br>[‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’, ‘japan’]<br>[‘zhejiang’, ‘wuzheng’, ‘shanghai’, ‘nanjing’, ‘japan’]<br>[‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’, ‘japan’]</p>
+<p>[‘japan’, ‘zhejiang’, ‘wuzheng’, ‘shanghai’, ‘nanjing’]<br>[‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’, ‘japan’]<br>[‘japan’, ‘nanjing’, ‘shanghai’, ‘wuzheng’, ‘zhejiang’]<br>[‘zhejiang’, ‘wuzheng’, ‘shanghai’, ‘nanjing’, ‘japan’]<br>5</p>
+
       
 
       
@@ -402,7 +446,7 @@ bmw
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#列表list"><span class="toc-number">1.</span> <span class="toc-text">列表list</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#列表list"><span class="toc-number">1.</span> <span class="toc-text">列表list</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#插入"><span class="toc-number">1.1.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除"><span class="toc-number">1.2.</span> <span class="toc-text">删除</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
