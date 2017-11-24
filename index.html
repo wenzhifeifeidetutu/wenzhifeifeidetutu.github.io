@@ -176,6 +176,142 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python-字符串列表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/24/python-字符串列表/">python 字符串列表</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/24/python-字符串列表/" class="archive-article-date">
+  	<time datetime="2017-11-24T05:30:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="列表list"><a href="#列表list" class="headerlink" title="列表list"></a>列表list</h1><ol>
+<li>使用</li>
+</ol>
+<p>python 中使用 []来定义一个列表<br>列表中可以包含任意信息 string int double 都可以<br>比如：</p>
+<pre><code>bicycle = [&quot;trek&quot;, &quot;cannondale&quot;, &quot;redline&quot;, &quot;specialized&quot;, 12]
+</code></pre><p>打印列表：</p>
+<pre><code>print (bicycle)
+
+运行结果
+[&apos;trek&apos;, &apos;cannondale&apos;, &apos;redline&apos;, &apos;specialized&apos;, 12]
+</code></pre><p>可以使用index来进行输出像java中的list一样</p>
+<pre><code>index = 0
+print(bicycle[index].title())
+index = -1 
+print(str(bicycle[index]).title())
+index = -2
+print(bicycle[index])
+</code></pre><p>-1 为倒数第一个 -2 为倒数第二个以此类推</p>
+<pre><code>运行结果
+Trek
+12
+specialized
+</code></pre><ol>
+<li>修改 </li>
+</ol>
+<p>和java一样 可以使用index修改</p>
+<pre><code>motorcycle = [&apos;haojue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;]
+print(motorcycle)
+motorcycle[0] = &apos;juejue&apos;
+print(motorcycle)
+</code></pre><p>运行结果</p>
+<pre><code>[&apos;haojue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;]
+[&apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;]
+</code></pre><ol>
+<li>插入和删除</li>
+</ol>
+<p>和Java很相似 可以使用append()函数进行尾部追加 或者使用 insert（）函数进行插</p>
+<pre><code>motorcycle.append(&apos;jijiji&apos;)
+print(motorcycle)
+motorcycle.insert(0, &apos;haohao&apos;)
+print(motorcycle)
+motorcycle.insert(-2, &apos;haohaowei&apos;)
+print(motorcycle)
+</code></pre><p>运行结果</p>
+<pre><code>[&apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;, &apos;jijiji&apos;]
+[&apos;haohao&apos;, &apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;, &apos;jijiji&apos;]
+</code></pre><p>删除<br>    删除分两种一种是删除不使用del（） 一种就是有返回函数的删除根据index pop()<br>    根据值来删除remove()</p>
+<pre><code>del motorcycle[-1]
+print(motorcycle)
+poped_motorcycle = motorcycle.pop(2)
+
+print(poped_motorcycle)
+
+print(motorcycle)
+
+motorcycle.remove(&apos;tt&apos;)
+
+print(motorcycle)
+</code></pre><p>运行结果</p>
+<pre><code>[&apos;haohao&apos;, &apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;haohaowei&apos;, &apos;6666&apos;]
+bmw
+[&apos;haohao&apos;, &apos;juejue&apos;, &apos;tt&apos;, &apos;haohaowei&apos;, &apos;6666&apos;]
+[&apos;haohao&apos;, &apos;juejue&apos;, &apos;haohaowei&apos;, &apos;6666&apos;]
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/24/python-字符串列表/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Python-基础学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -911,82 +1047,10 @@ print(0.2 + 0.1)
 
 
   
-    <article id="post-Android-LayoutInfalter详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/26/Android-LayoutInfalter详解/">Android LayoutInfalter详解</a>
-    </h1>
-  
-
-        
-        <a href="/2016/12/26/Android-LayoutInfalter详解/" class="archive-article-date">
-  	<time datetime="2016-12-26T10:14:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Android-LayoutInflater详解"><a href="#Android-LayoutInflater详解" class="headerlink" title="Android LayoutInflater详解"></a>Android LayoutInflater详解</h1><h2 id="LayoutInflater介绍"><a href="#LayoutInflater介绍" class="headerlink" title="LayoutInflater介绍"></a>LayoutInflater介绍</h2><p>在实际开发中LayoutInflater这个类还是非常有用的，它的作用类似于findViewById()。<br>不同点是LayoutInflater是用来找res/layout/下的xml布局文件，并且实例化；而findViewById()是找xml布局文件下的具体widget控件(如Button、TextView等)。</p>
-        
-          <a class="article-more-a" href="/2016/12/26/Android-LayoutInfalter详解/#more">More >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/26/Android-LayoutInfalter详解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1080,11 +1144,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

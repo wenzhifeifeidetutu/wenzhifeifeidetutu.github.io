@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wenergou.top">
-  <title>Archives: 2016 | 温二狗</title>
+  <title>python 字符串列表 | 温二狗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温二狗">
-<meta property="og:url" content="http://wenergou.top/archives/2016/index.html">
+  <meta name="description" content="列表list 使用  python 中使用 []来定义一个列表列表中可以包含任意信息 string int double 都可以比如： bicycle = [&amp;quot;trek&amp;quot;, &amp;quot;cannondale&amp;quot;, &amp;quot;redline&amp;quot;, &amp;quot;specialized&amp;quot;, 12] 打印列表： print (bicycle)  运行结果 [">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 字符串列表">
+<meta property="og:url" content="http://wenergou.top/2017/11/24/python-字符串列表/index.html">
 <meta property="og:site_name" content="温二狗">
-<meta property="og:description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+<meta property="og:description" content="列表list 使用  python 中使用 []来定义一个列表列表中可以包含任意信息 string int double 都可以比如： bicycle = [&amp;quot;trek&amp;quot;, &amp;quot;cannondale&amp;quot;, &amp;quot;redline&amp;quot;, &amp;quot;specialized&amp;quot;, 12] 打印列表： print (bicycle)  运行结果 [">
+<meta property="og:updated_time" content="2017-11-24T06:03:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="温二狗">
-<meta name="twitter:description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+<meta name="twitter:title" content="python 字符串列表">
+<meta name="twitter:description" content="列表list 使用  python 中使用 []来定义一个列表列表中可以包含任意信息 string int double 都可以比如： bicycle = [&amp;quot;trek&amp;quot;, &amp;quot;cannondale&amp;quot;, &amp;quot;redline&amp;quot;, &amp;quot;specialized&amp;quot;, 12] 打印列表： print (bicycle)  运行结果 [">
   
     <link rel="alternative" href="/atom.xml" title="温二狗" type="application/atom+xml">
   
@@ -174,136 +176,252 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-python-字符串列表" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python 字符串列表
+    </h1>
+  
+
+        
+        <a href="/2017/11/24/python-字符串列表/" class="archive-article-date">
+  	<time datetime="2017-11-24T05:30:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="列表list"><a href="#列表list" class="headerlink" title="列表list"></a>列表list</h1><ol>
+<li>使用</li>
+</ol>
+<p>python 中使用 []来定义一个列表<br>列表中可以包含任意信息 string int double 都可以<br>比如：</p>
+<pre><code>bicycle = [&quot;trek&quot;, &quot;cannondale&quot;, &quot;redline&quot;, &quot;specialized&quot;, 12]
+</code></pre><p>打印列表：</p>
+<pre><code>print (bicycle)
+
+运行结果
+[&apos;trek&apos;, &apos;cannondale&apos;, &apos;redline&apos;, &apos;specialized&apos;, 12]
+</code></pre><p>可以使用index来进行输出像java中的list一样</p>
+<pre><code>index = 0
+print(bicycle[index].title())
+index = -1 
+print(str(bicycle[index]).title())
+index = -2
+print(bicycle[index])
+</code></pre><p>-1 为倒数第一个 -2 为倒数第二个以此类推</p>
+<pre><code>运行结果
+Trek
+12
+specialized
+</code></pre><ol>
+<li>修改 </li>
+</ol>
+<p>和java一样 可以使用index修改</p>
+<pre><code>motorcycle = [&apos;haojue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;]
+print(motorcycle)
+motorcycle[0] = &apos;juejue&apos;
+print(motorcycle)
+</code></pre><p>运行结果</p>
+<pre><code>[&apos;haojue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;]
+[&apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;]
+</code></pre><ol>
+<li>插入和删除</li>
+</ol>
+<p>和Java很相似 可以使用append()函数进行尾部追加 或者使用 insert（）函数进行插</p>
+<pre><code>motorcycle.append(&apos;jijiji&apos;)
+print(motorcycle)
+motorcycle.insert(0, &apos;haohao&apos;)
+print(motorcycle)
+motorcycle.insert(-2, &apos;haohaowei&apos;)
+print(motorcycle)
+</code></pre><p>运行结果</p>
+<pre><code>[&apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;, &apos;jijiji&apos;]
+[&apos;haohao&apos;, &apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;6666&apos;, &apos;jijiji&apos;]
+</code></pre><p>删除<br>    删除分两种一种是删除不使用del（） 一种就是有返回函数的删除根据index pop()<br>    根据值来删除remove()</p>
+<pre><code>del motorcycle[-1]
+print(motorcycle)
+poped_motorcycle = motorcycle.pop(2)
+
+print(poped_motorcycle)
+
+print(motorcycle)
+
+motorcycle.remove(&apos;tt&apos;)
+
+print(motorcycle)
+</code></pre><p>运行结果</p>
+<pre><code>[&apos;haohao&apos;, &apos;juejue&apos;, &apos;bmw&apos;, &apos;tt&apos;, &apos;haohaowei&apos;, &apos;6666&apos;]
+bmw
+[&apos;haohao&apos;, &apos;juejue&apos;, &apos;tt&apos;, &apos;haohaowei&apos;, &apos;6666&apos;]
+[&apos;haohao&apos;, &apos;juejue&apos;, &apos;haohaowei&apos;, &apos;6666&apos;]
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/weimoney.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/30/ContentValues详解/" class="archive-article-date">
-  	<time datetime="2016-12-30T10:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/30/ContentValues详解/">ContentValues详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://wenergou.top/2017/11/24/python-字符串列表/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/28/android-同步到github详细操作/" class="archive-article-date">
-  	<time datetime="2016-12-28T10:25:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/24/Python-基础学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python 基础学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/28/android-同步到github详细操作/">android 同步到github详细操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#列表list"><span class="toc-number">1.</span> <span class="toc-text">列表list</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/26/Android-LayoutInfalter详解/" class="archive-article-date">
-  	<time datetime="2016-12-26T10:14:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-26</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/26/Android-LayoutInfalter详解/">Android LayoutInfalter详解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -326,8 +444,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
