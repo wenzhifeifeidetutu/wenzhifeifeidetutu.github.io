@@ -196,8 +196,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#k-近邻算法#</p>
-<pre><code>from numpy import *
+        <h1 id="k-近邻算法"><a href="#k-近邻算法" class="headerlink" title="k-近邻算法"></a>k-近邻算法</h1><p>什么是K-近邻?<br>一句话总结，物以类聚，人以群分，更‘靠近’哪一个点，就认为它属于那一个点。<br>简单的说k-近邻算法采用测量不同的特征值之间的距离方法进行方法分类</p>
+<p>优点：精度高，对异常值不敏感<br>缺点：计算复杂，空间复杂</p>
+<h2 id="Knn伪代码"><a href="#Knn伪代码" class="headerlink" title="Knn伪代码"></a>Knn伪代码</h2><ol>
+<li>计算已知类别数据集中的点与当前点之间的距离</li>
+<li>按照距离递增依次排序</li>
+<li>选取当前点距离最小的k个点</li>
+<li>确定前k个点所在的类别出现的频率</li>
+<li>返回前k个点出现频率最高的类别作为当前点的预测分类</li>
+</ol>
+<p>根据这个伪代码流程，我们就可以使用python进行算法重构了，分三步，一算距离，二排序，三取值</p>
+<h2 id="具体代码"><a href="#具体代码" class="headerlink" title="具体代码"></a>具体代码</h2><pre><code>from numpy import *
 import operator
 
 
@@ -257,6 +266,12 @@ while 1:
 
     except:
         break
+</code></pre><h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><pre><code>/Library/Frameworks/Python.framework/Versions/3.6/bin/python3.6 /Users/wenzhi/Desktop/pythonwork/KNN/use_KNNshuanfa.py
+B
+请输入点x坐标1
+请输入y坐标2
+最接近与A class
+请输入点x坐标
 </code></pre>
       
 
