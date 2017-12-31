@@ -176,6 +176,140 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-KNN-k近邻算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/31/KNN-k近邻算法/">KNN k近邻算法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/31/KNN-k近邻算法/" class="archive-article-date">
+  	<time datetime="2017-12-31T10:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#k-近邻算法#</p>
+<pre><code>from numpy import *
+import operator
+
+
+def createDataSet():
+    group = array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
+    labels = [&apos;A&apos;, &apos;A&apos;, &apos;B&apos;, &apos;B&apos;]
+    return group, labels
+
+
+def classify0(inX, dataSet, labels, k):
+    #获得第二维的长度group.shape[0] 着为4 shape【1】为2
+
+dataSetSize = dataSet.shape[0]
+
+#numpy.tile([0,0],(2,1))#在列方向上重复[0,0]1次，行2次
+
+diffMat = tile(inX, (dataSetSize, 1)) - dataSet
+
+#获取平方
+sqDiffMat = diffMat**2
+
+#现在对于数据的处理更多的还是numpy。没有axis参数表示全部相加，axis＝0表示按列相加，axis＝1表示按照行的方向相加
+#获取每行的和
+
+sqDistances = sqDiffMat.sum(axis=1)
+
+#距离公式开方
+distances = sqDistances**0.5
+
+#将array进行升序排列
+sortedDistances = distances.argsort()
+
+#将字典分为元组
+classCount = {}
+
+for i in range(k):
+    voteIlable = labels[sortedDistances[i]]
+
+    classCount[voteIlable] = classCount.get(voteIlable, 0) + 1
+#iteritems()
+sortedClassCount = sorted(classCount.items(), key=operator.itemgetter(1), reverse=True)
+
+return sortedClassCount[0][0]
+</code></pre><h2 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h2><pre><code>import k_NNshuanfa
+
+group, labels = k_NNshuanfa.createDataSet()
+
+print(k_NNshuanfa.classify0([0, 0], group, labels, 3))
+
+while 1:
+    try:
+        a = input(&apos;请输入点x坐标&apos;)
+        b = input(&apos;请输入y坐标&apos;)
+        a = int(a)
+        b = int(b)
+        print(&apos;最接近与&apos;+ k_NNshuanfa.classify0([a, b], group, labels, 3) + &apos;class&apos;)
+
+    except:
+        break
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">机器学习 算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/31/KNN-k近邻算法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python-字符串列表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -899,86 +1033,6 @@ print(name + age)
 
 
   
-    <article id="post-android-同步到github详细操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/28/android-同步到github详细操作/">android 同步到github详细操作</a>
-    </h1>
-  
-
-        
-        <a href="/2016/12/28/android-同步到github详细操作/" class="archive-article-date">
-  	<time datetime="2016-12-28T10:25:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="android-同步到github详细操作"><a href="#android-同步到github详细操作" class="headerlink" title="android 同步到github详细操作"></a>android 同步到github详细操作</h1><p>在使用studio开发的项目过程中有时候我们想将项目发布到github上，以前都是用一种比较麻烦的方式（cmd）进行提交最近发现studio其实是自带这种功能的，终于可以摆脱命令行了。</p>
-<p>因为自己也没有做很深的研究，这里就先分享一下通过studio将自己的项目上传到github上的步骤。</p>
-<p><strong>两个相关概念：git和github</strong></p>
-<p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。分布式相比于集中式的最大区别在于开发者可以提交到本地，每个开发者通过克隆（git clone），在本地机器上拷贝一个完整的Git仓库。</p>
-<p>github作为开源代码库以及版本控制系统，它是一个网站,给用户提供git服务.这样你就不用自己部署git系统直接注册个账号,就可以用他们提供的git服务。GitHub可以托管各种git库，并提供一个web界面，GitHub的独特卖点在于从另外一个项目进行分支的简易性。为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull request”机制向项目负责人申请代码合并。</p>
-        
-          <a class="article-more-a" href="/2016/12/28/android-同步到github详细操作/#more">More >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/28/android-同步到github详细操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1077,6 +1131,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">机器学习 算法</a>
               </li>
              
               <li class="article-tag-list-item">
