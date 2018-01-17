@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://wenergou.top/2018/01/18/python3-爬虫基础第一课/index.html">
 <meta property="og:site_name" content="温二狗">
 <meta property="og:description" content="多进程 Multiprocessing 模块multiprocessing 模块官方说明文档Process 类 Process 类用来描述一个进程对象。创建子进程的时候，只需要传入一个执行函数和函数的参数即可完成 Process 示例的创建。 star() 方法启动进程， join() 方法实现进程间的同步，等待所有进程退出。 close() 用来阻止多余的进程涌入进程池 Pool 造成进程阻塞。">
-<meta property="og:updated_time" content="2018-01-17T18:42:02.000Z">
+<meta property="og:updated_time" content="2018-01-17T18:43:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python3 爬虫基础第一课">
 <meta name="twitter:description" content="多进程 Multiprocessing 模块multiprocessing 模块官方说明文档Process 类 Process 类用来描述一个进程对象。创建子进程的时候，只需要传入一个执行函数和函数的参数即可完成 Process 示例的创建。 star() 方法启动进程， join() 方法实现进程间的同步，等待所有进程退出。 close() 用来阻止多余的进程涌入进程池 Pool 造成进程阻塞。">
@@ -205,8 +205,11 @@ multiprocessing.Process(group=None, target=None, name=None, args=(), kwargs={}, 
 
 target 是函数名字，需要调用的函数
 args 函数需要的参数，以 tuple 的形式传入
-</code></pre><p>示例：<br><a id="more"></a><br>    import multiprocessing<br>    import os</p>
-<pre><code>def run_proc(name):
+</code></pre><p>示例：<br><a id="more"></a></p>
+<pre><code>import multiprocessing
+import os
+
+def run_proc(name):
     print(&apos;Child process {0} {1} Running &apos;.format(name, os.getpid()))
 
 if __name__ == &apos;__main__&apos;:
