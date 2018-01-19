@@ -19,9 +19,9 @@
 <meta property="og:image" content="http://wenergou.top/images/Fragment2.png">
 <meta property="og:image" content="http://wenergou.top/images/Fragment3.png">
 <meta property="og:image" content="http://wenergou.top/images/Fragment4.png">
-<meta property="og:image" content="http://wenergou.top/2018/01/19/Fragment-详解/Fragment6.png">
 <meta property="og:image" content="http://wenergou.top/images/Fragment5.png">
-<meta property="og:updated_time" content="2018-01-19T16:42:47.000Z">
+<meta property="og:image" content="http://wenergou.top/images/Fragment6.png">
+<meta property="og:updated_time" content="2018-01-19T16:46:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fragment 源码详解">
 <meta name="twitter:description" content="产生背景同时适配手机和平板、UI和逻辑的共享。 Fragment的介绍Fragment也会被加入回退栈中。 Fragment拥有自己的生命周期和接受、处理用户的事件 可以动态的添加、替换和移除某个Fragment Fragment的生命周期必须依存于Activity  Fragment依附于Activity的生命状态">
@@ -253,10 +253,10 @@
 <p>主要的操作都是FragmentTransaction的方法 (一般我们为了向下兼容，都使用support.v4包里面的Fragment)</p>
 <p>getFragmentManager() // Fragment若使用的是support.v4包中的，那就使用getSupportFragmentManager代替</p>
 <p>主要的操作都是FragmentTransaction的方法</p>
+<p><img src="/images/Fragment5.png" alt=""></p>
 <pre><code>getSupportFragmentManager().beginTransaction().replace(R.id.container, new ScienceNewsFragment()).commit();
 </code></pre><h2 id="管理Fragment回退栈"><a href="#管理Fragment回退栈" class="headerlink" title="管理Fragment回退栈"></a>管理Fragment回退栈</h2><p>跟踪回退栈状态</p>
-<p><img src="Fragment6.png" alt=""></p>
-<p><img src="/images/Fragment5.png" alt=""></p>
+<p><img src="/images/Fragment6.png" alt=""></p>
 <p>我们通过实现<em>OnBackStackChangedListener</em>接口来实现回退栈状态跟踪，具体如下</p>
 <p>管理回退栈</p>
 <pre><code>FragmentTransaction.addToBackStack(String) --将一个刚刚添加的Fragment加入到回退栈中
