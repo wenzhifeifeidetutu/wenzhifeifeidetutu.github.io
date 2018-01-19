@@ -203,76 +203,9 @@
 <h2 id="Fragment的生命周期"><a href="#Fragment的生命周期" class="headerlink" title="Fragment的生命周期"></a>Fragment的生命周期</h2><p>必须依存于Activity</p>
 <p><img src="/images/Fragment1.png" alt=""></p>
 <p>Fragment依附于Activity的生命状态</p>
-<p><img src="/images/Fragment2.png" alt=""></p>
-<p>#Fragment生命周期方法含义：</p>
-<pre><code>public void onAttach(Context context)
-</code></pre><p>onAttach方法会在Fragment于窗口关联后立刻调用。从该方法开始，就可以通过Fragment.getActivity方法获取与Fragment关联的窗口对象，但因为Fragment的控件未初始化，所以不能够操作控件。</p>
-<pre><code>public void onCreate(Bundle savedInstanceState)
-</code></pre><p>在调用完onAttach执行完之后立刻调用onCreate方法，可以在Bundle对象中获取一些在Activity中传过来的数据。通常会在该方法中读取保存的状态，获取或初始化一些数据。在该方法中不要进行耗时操作，不然窗口不会显示。</p>
-<pre><code>public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
-</code></pre><p>该方法是Fragment很重要的一个生命周期方法，因为会在该方法中创建在Fragment显示的View，其中inflater是用来装载布局文件的，container是标签的父标签对应对象，savedInstanceState参数可以获取Fragment保存的状态，如果未保存那么就为null。</p>
-<pre><code>public void onViewCreated(View view,Bundle savedInstanceState)
-</code></pre><p>Android在创建完Fragment中的View对象之后，会立刻回调该方法。其种view参数就是onCreateView中返回的view，而bundle对象用于一般用途。</p>
-<pre><code>public void onActivityCreated(Bundle savedInstanceState)
-</code></pre><p>在Activity的onCreate方法执行完之后，Android系统会立刻调用该方法，表示窗口已经初始化完成，从这一个时候开始，就可以在Fragment中使用getActivity().findViewById(Id);来操控Activity中的view了。</p>
-<pre><code>public void onStart()
-</code></pre><p>这个没啥可讲的，但有一个细节需要知道，当系统调用该方法的时候，fragment已经显示在ui上，但还不能进行互动，因为onResume方法还没执行完。</p>
-<pre><code>public void onResume()
-</code></pre><p>该方法为fragment从创建到显示Android系统调用的最后一个生命周期方法，调用完该方法时候，fragment就可以与用户互动了。</p>
-<pre><code>public void onPause()
-</code></pre><p>fragment由活跃状态变成非活跃状态执行的第一个回调方法，通常可以在这个方法中保存一些需要临时暂停的工作。如保存音乐播放进度，然后在onResume中恢复音乐播放进度。</p>
-<pre><code>public void onStop()
-</code></pre><p>当onStop返回的时候，fragment将从屏幕上消失。</p>
-<pre><code>public void onDestoryView()
-</code></pre><p>该方法的调用意味着在 onCreateView 中创建的视图都将被移除。</p>
-<pre><code>public void onDestroy()
-</code></pre><p>Android在Fragment不再使用时会调用该方法，要注意的是这时Fragment还和Activity藕断丝连！并且可以获得Fragment对象，但无法对获得的Fragment进行任何操作（呵呵呵~我已经不听你的了）。</p>
-<pre><code>public void onDetach()
-</code></pre><p>为Fragment生命周期中的最后一个方法，当该方法执行完后，Fragment与Activity不再有关联(分手！我们分手！！(╯‵□′)╯︵┻━┻)。</p>
-<h2 id="Fragment比Activity多了几个额外的生命周期回调方法："><a href="#Fragment比Activity多了几个额外的生命周期回调方法：" class="headerlink" title="Fragment比Activity多了几个额外的生命周期回调方法："></a>Fragment比Activity多了几个额外的生命周期回调方法：</h2><p>onAttach(Activity):当Fragment和Activity发生关联时使用</p>
-<p>onCreateView(LayoutInflater, ViewGroup, Bundle):创建该Fragment的视图</p>
-<p>onActivityCreate(Bundle):当Activity的onCreate方法返回时调用</p>
-<p>onDestoryView():与onCreateView相对应，当该Fragment的视图被移除时调用</p>
-<p>onDetach():与onAttach相对应，当Fragment与Activity关联被取消时调用</p>
-<h1 id="除了onCreateView，其他的所有方法如果你重写了，必须调用父类对于该方法的实现"><a href="#除了onCreateView，其他的所有方法如果你重写了，必须调用父类对于该方法的实现" class="headerlink" title="除了onCreateView，其他的所有方法如果你重写了，必须调用父类对于该方法的实现"></a>除了onCreateView，其他的所有方法如果你重写了，必须调用父类对于该方法的实现</h1><h2 id="Fragment与Activity之间的交互"><a href="#Fragment与Activity之间的交互" class="headerlink" title="Fragment与Activity之间的交互"></a>Fragment与Activity之间的交互</h2><p>Fragment与Activity之间的交互可以通过Fragment.setArguments(Bundle args)以及Fragment.getArguments()来实现。</p>
-<h2 id="Fragment状态的持久化。"><a href="#Fragment状态的持久化。" class="headerlink" title="Fragment状态的持久化。"></a>Fragment状态的持久化。</h2><p><img src="/images/Fragment3.png" alt=""></p>
-<p><img src="/images/Fragment4.png" alt=""></p>
-<p>继承Fragment，重写onCreateView决定Fragment的布局</p>
-<p>在Activity中声明此Fragment,就和普通的View一样</p>
-<p>Fragment常用的API<br>android.support.v4.app.Fragment 主要用于定义Fragment</p>
-<p>android.support.v4.app.FragmentManager 主要用于在Activity中操作Fragment，可以使用FragmentManager.findFragmenById，FragmentManager.findFragmentByTag等方法去找到一个Fragment</p>
-<p>android.support.v4.app.FragmentTransaction 保证一些列Fragment操作的原子性，熟悉事务这个词</p>
-<p>主要的操作都是FragmentTransaction的方法 (一般我们为了向下兼容，都使用support.v4包里面的Fragment)</p>
-<p>getFragmentManager() // Fragment若使用的是support.v4包中的，那就使用getSupportFragmentManager代替</p>
-<p>主要的操作都是FragmentTransaction的方法</p>
-<pre><code>getSupportFragmentManager().beginTransaction().replace(R.id.container, new ScienceNewsFragment()).commit();
-</code></pre><h2 id="管理Fragment回退栈"><a href="#管理Fragment回退栈" class="headerlink" title="管理Fragment回退栈"></a>管理Fragment回退栈</h2><p>跟踪回退栈状态</p>
-<p><img src="Fragment6.png" alt=""></p>
-<p><img src="/images/Fragment5.png" alt=""></p>
-<p>我们通过实现<em>OnBackStackChangedListener</em>接口来实现回退栈状态跟踪，具体如下</p>
-<p>管理回退栈</p>
-<pre><code>FragmentTransaction.addToBackStack(String) --将一个刚刚添加的Fragment加入到回退栈中
-
-getSupportFragmentManager().getBackStackEntryCount() －获取回退栈中实体数量
-
-getSupportFragmentManager().popBackStack(String name, int flags) －根据name立刻弹出栈顶的fragment
-
-getSupportFragmentManager().popBackStack(int id, int flags) －根据id立刻弹出栈顶的fragment
-</code></pre><p>目前在开发APP时，Fragment已经被开发者广泛使用，但Fragment的BackStack却被很多开发者误解。所以在此讨论下Fragment的BackStack及一些相关的常用接口。首先需要明确的是，FragmentActivity的FragmentManager是处理Fragment Transaction的而不是处理Fragment。BackStack内部的一个Transaction可以包含一个或多个和Fragment相关的操作。</p>
-<pre><code>FragmentTransaction ft = getFragmentManager().beginTransaction(); 
- ft.add(restId, fragmentA);  ft.replace(fragmentB);  
-ft.commit();
-</code></pre><p>上面的一个FragmentTransaction既包含add操作又包含replace操作。 </p>
-<pre><code>FragmentTransaction默认并不会主动被加入到BackStack中，除非开发者调用了addToBackStack(String tag)方法。参数&apos;tag&apos;将作为本次加入BackStack的Transaction的标志。
-
-FragmentTransaction ft = getFragmentManager().beginTransaction(); 
- ft.add(resId, fragmentA);  ft.replace(resId, fragmentB);  
- ft.addToBackstack(&quot;tag&quot;);  ft.commit();
-
-和addToBackStack相对应的接口方法是popBackStack()，调用该方法后会将事物操作插入到FragmentManager的操作队列，只有当轮询到该事物时才能执行。所以Google还提供了可以立刻执行的接口
-
-popBackStackImmediate()
-</code></pre>
+        
+          <a class="article-more-a" href="/2018/01/19/Fragment-详解/#more">More >></a>
+        
       
 
       

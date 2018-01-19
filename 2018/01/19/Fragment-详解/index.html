@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="http://wenergou.top">
   <title>Fragment 源码详解 | 温二狗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="产生背景同时适配手机和平板、UI和逻辑的共享。 Fragment的介绍Fragment也会被加入回退栈中。 Fragment拥有自己的生命周期和接受、处理用户的事件 可以动态的添加、替换和移除某个Fragment Fragment的生命周期必须依存于Activity  Fragment依附于Activity的生命状态  #Fragment生命周期方法含义： public void onAttach">
+  <meta name="description" content="产生背景同时适配手机和平板、UI和逻辑的共享。 Fragment的介绍Fragment也会被加入回退栈中。 Fragment拥有自己的生命周期和接受、处理用户的事件 可以动态的添加、替换和移除某个Fragment Fragment的生命周期必须依存于Activity  Fragment依附于Activity的生命状态">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fragment 源码详解">
 <meta property="og:url" content="http://wenergou.top/2018/01/19/Fragment-详解/index.html">
 <meta property="og:site_name" content="温二狗">
-<meta property="og:description" content="产生背景同时适配手机和平板、UI和逻辑的共享。 Fragment的介绍Fragment也会被加入回退栈中。 Fragment拥有自己的生命周期和接受、处理用户的事件 可以动态的添加、替换和移除某个Fragment Fragment的生命周期必须依存于Activity  Fragment依附于Activity的生命状态  #Fragment生命周期方法含义： public void onAttach">
+<meta property="og:description" content="产生背景同时适配手机和平板、UI和逻辑的共享。 Fragment的介绍Fragment也会被加入回退栈中。 Fragment拥有自己的生命周期和接受、处理用户的事件 可以动态的添加、替换和移除某个Fragment Fragment的生命周期必须依存于Activity  Fragment依附于Activity的生命状态">
 <meta property="og:image" content="http://wenergou.top/images/Fragment1.png">
 <meta property="og:image" content="http://wenergou.top/images/Fragment2.png">
 <meta property="og:image" content="http://wenergou.top/images/Fragment3.png">
 <meta property="og:image" content="http://wenergou.top/images/Fragment4.png">
 <meta property="og:image" content="http://wenergou.top/2018/01/19/Fragment-详解/Fragment6.png">
 <meta property="og:image" content="http://wenergou.top/images/Fragment5.png">
-<meta property="og:updated_time" content="2018-01-19T16:40:31.000Z">
+<meta property="og:updated_time" content="2018-01-19T16:41:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fragment 源码详解">
-<meta name="twitter:description" content="产生背景同时适配手机和平板、UI和逻辑的共享。 Fragment的介绍Fragment也会被加入回退栈中。 Fragment拥有自己的生命周期和接受、处理用户的事件 可以动态的添加、替换和移除某个Fragment Fragment的生命周期必须依存于Activity  Fragment依附于Activity的生命状态  #Fragment生命周期方法含义： public void onAttach">
+<meta name="twitter:description" content="产生背景同时适配手机和平板、UI和逻辑的共享。 Fragment的介绍Fragment也会被加入回退栈中。 Fragment拥有自己的生命周期和接受、处理用户的事件 可以动态的添加、替换和移除某个Fragment Fragment的生命周期必须依存于Activity  Fragment依附于Activity的生命状态">
 <meta name="twitter:image" content="http://wenergou.top/images/Fragment1.png">
   
     <link rel="alternative" href="/atom.xml" title="温二狗" type="application/atom+xml">
@@ -210,6 +210,7 @@
 <h2 id="Fragment的生命周期"><a href="#Fragment的生命周期" class="headerlink" title="Fragment的生命周期"></a>Fragment的生命周期</h2><p>必须依存于Activity</p>
 <p><img src="/images/Fragment1.png" alt=""></p>
 <p>Fragment依附于Activity的生命状态</p>
+<a id="more"></a>
 <p><img src="/images/Fragment2.png" alt=""></p>
 <p>#Fragment生命周期方法含义：</p>
 <pre><code>public void onAttach(Context context)
