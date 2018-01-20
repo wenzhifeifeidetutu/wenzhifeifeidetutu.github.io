@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wenergou.top">
-  <title>Handler 机制详解 | 温二狗</title>
+  <title>Android Handler 机制详解 | 温二狗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+  <meta name="description" content="简介Android中我们常常碰到需要更新ui操作，但是我们知道在主线程中android ui的刷新 是60毫秒 首先我们要知道默认情况下，在android中Activity的最长执行时间是5秒，BroadcastReceiver的最长执行时间则是10秒。 第一：什么会引发ANR？在Android里，应用程序的响应性是由Activity Manager和WindowManager系统服务监视的 当它">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Handler 机制详解">
+<meta property="og:title" content="Android Handler 机制详解">
 <meta property="og:url" content="http://wenergou.top/2018/01/20/Handler-机制详解/index.html">
 <meta property="og:site_name" content="温二狗">
-<meta property="og:description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
-<meta property="og:updated_time" content="2018-01-19T16:57:21.000Z">
+<meta property="og:description" content="简介Android中我们常常碰到需要更新ui操作，但是我们知道在主线程中android ui的刷新 是60毫秒 首先我们要知道默认情况下，在android中Activity的最长执行时间是5秒，BroadcastReceiver的最长执行时间则是10秒。 第一：什么会引发ANR？在Android里，应用程序的响应性是由Activity Manager和WindowManager系统服务监视的 当它">
+<meta property="og:image" content="http://wenergou.top/images/handler.png">
+<meta property="og:updated_time" content="2018-01-20T05:47:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Handler 机制详解">
-<meta name="twitter:description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+<meta name="twitter:title" content="Android Handler 机制详解">
+<meta name="twitter:description" content="简介Android中我们常常碰到需要更新ui操作，但是我们知道在主线程中android ui的刷新 是60毫秒 首先我们要知道默认情况下，在android中Activity的最长执行时间是5秒，BroadcastReceiver的最长执行时间则是10秒。 第一：什么会引发ANR？在Android里，应用程序的响应性是由Activity Manager和WindowManager系统服务监视的 当它">
+<meta name="twitter:image" content="http://wenergou.top/images/handler.png">
   
     <link rel="alternative" href="/atom.xml" title="温二狗" type="application/atom+xml">
   
@@ -183,7 +185,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Handler 机制详解
+      Android Handler 机制详解
     </h1>
   
 
@@ -196,7 +198,192 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Android中我们常常碰到需要更新ui操作，但是我们知道在主线程中android ui的刷新 是60毫秒</p>
+<p>首先我们要知道默认情况下，在android中Activity的最长执行时间是5秒，BroadcastReceiver的最长执行时间则是10秒。</p>
+<p>第一：什么会引发ANR？<br>在Android里，应用程序的响应性是由Activity Manager和WindowManager系统服务监视的 当它监测到以下情况中的一个时，Android就会针对特定的应用程序显示ANR：</p>
+<ol>
+<li>在5秒内没有响应输入的事件（例如，按键按下，屏幕触摸）</li>
+<li>BroadcastReceiver在10秒内没有执行完毕</li>
+</ol>
+<p>造成以上两点的原因有很多，比如在主线程中做了非常耗时的操作，比如说是下载，io异常等。</p>
+<p>在 Android 中，只有主线程才能操作 UI，但是主线程不能进行耗时操作，否则会阻塞线程，产生 ANR 异常，所以常常把耗时操作放到其它子线程进行。如果在子线程中需要更新 UI，一般是通过 Handler 发送消息，主线程接受消息并且进行相应的逻辑处理。除了直接使用 Handler，还可以通过 View 的 post 方法以及 Activity 的 runOnUiThread 方法来更新 UI，它们内部也是利用了 Handler 。</p>
+<h2 id="Handler-的用法"><a href="#Handler-的用法" class="headerlink" title="Handler 的用法"></a>Handler 的用法</h2><a id="more"></a>
+<pre><code>public class MainActivity extends AppCompatActivity {
+public static final int UPDATA_TEXT = 1;
+private Handler handler = new Handler() {
+    public void handleMessage(Message msg) {
+        switch (msg.what){
+            case UPDATA_TEXT:
+                //进行ui操作
+                textView.setText(&quot;Nice to meet you&quot;);
+                break;
+            default:
+                break;
+        }
+    }
+};
+private TextView textView;
+private Button Change_button;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    textView = (TextView)this.findViewById(R.id.text);
+    Change_button = (Button)this.findViewById(R.id.change_text);
+    Change_button.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Message message = new Message();
+                    message.what = UPDATA_TEXT;
+                    handler.sendMessage(message);
+                }
+            }).start();
+        }
+    });
+}
+</code></pre><p>}</p>
+<p>首先构建一个 Handler实例， 重写HandlerMessage方法，在这里进行更新</p>
+<h2 id="Handler-构造函数源码"><a href="#Handler-构造函数源码" class="headerlink" title="Handler 构造函数源码"></a>Handler 构造函数源码</h2><pre><code>public Handler(Callback callback, boolean async) {
+    if (FIND_POTENTIAL_LEAKS) {
+        final Class&lt;? extends Handler&gt; klass = getClass();
+        if ((klass.isAnonymousClass() || klass.isMemberClass() || klass.isLocalClass()) &amp;&amp;
+                (klass.getModifiers() &amp; Modifier.STATIC) == 0) {
+            Log.w(TAG, &quot;The following Handler class should be static or leaks might occur: &quot; +
+                klass.getCanonicalName());
+        }
+    }
+    mLooper = Looper.myLooper();
+    if (mLooper == null) {
+        throw new RuntimeException(
+            &quot;Can&apos;t create handler inside thread that has not called Looper.prepare()&quot;);
+    }
+    mQueue = mLooper.mQueue;
+    mCallback = callback;
+    mAsynchronous = async;
+}
+</code></pre><p>首先我们来看看我们使用Handler时候发生了什么</p>
+<p><img src="/images/handler.png" alt=""></p>
+<p>在构造方法中，通过调用 Looper.myLooper() 获得了 Looper 对象。如果 mLooper 为空，那么会抛出异常：”Can’t create handler inside thread that has not called Looper.prepare()”，意思是：不能在未调用 Looper.prepare() 的线程创建 handler。上面的例子并没有调用这个方法，但是却没有抛出异常。其实是因为主线程在启动的时候已经帮我们调用过了，所以可以直接创建 Handler 。如果是在其它子线程，直接创建 Handler 是会导致应用崩溃的。</p>
+<p>在得到 Handler 之后，又获取了它的内部变量 mQueue， 这是 MessageQueue 对象，也就是消息队列，用于保存 Handler 发送的消息。</p>
+<p>到此，Android 消息机制的三个重要角色全部出现了，分别是 Handler 、Looper 以及 MessageQueue。 一般在代码我们接触比较多的是 Handler ，但 Looper 与 MessageQueue 却是 Handler 运行时不可或缺的。</p>
+<h2 id="Looper"><a href="#Looper" class="headerlink" title="Looper"></a>Looper</h2><p>上一节分析了 Handler 的构造，其中调用了 Looper.myLooper() 方法，下面是它的源码：</p>
+<pre><code>static final ThreadLocal&lt;Looper&gt; sThreadLocal = new ThreadLocal&lt;Looper&gt;();
+public static @Nullable Looper myLooper() {
+    return sThreadLocal.get();
+}
+</code></pre><p>这个方法的代码很简单，就是从 sThreadLocal 中获取 Looper 对象。sThreadLocal 是 ThreadLocal 对象，这说明 Looper 是线程独立的。</p>
+<p>在 Handler 的构造中，从抛出的异常可知，每个线程想要获得 Looper 需要调用 prepare() 方法，继续看它的代码：</p>
+<pre><code>private static void prepare(boolean quitAllowed) {
+    if (sThreadLocal.get() != null) {
+        throw new RuntimeException(&quot;Only one Looper may be created per thread&quot;);
+    }
+    sThreadLocal.set(new Looper(quitAllowed));
+}
+</code></pre><p>同样很简单，就是给 sThreadLocal 设置一个 Looper。不过需要注意的是如果 sThreadLocal 已经设置过了，那么会抛出异常，也就是说一个线程只会有一个 Looper。创建 Looper 的时候，内部会创建一个消息队列：</p>
+<pre><code>private Looper(boolean quitAllowed) {
+    mQueue = new MessageQueue(quitAllowed);
+    mThread = Thread.currentThread();
+}
+</code></pre><p>现在的问题是， Looper看上去很重要的样子，它到底是干嘛的？<br>回答： Looper 开启消息循环系统，不断从消息队列 MessageQueue 取出消息交由 Handler 处理。</p>
+<p>为什么这样说呢，看一下 Looper 的 loop方法：</p>
+<pre><code>public static void loop() {
+    final Looper me = myLooper();
+    if (me == null) {
+        throw new RuntimeException(&quot;No Looper; Looper.prepare() wasn&apos;t called on this thread.&quot;);
+    }
+    final MessageQueue queue = me.mQueue;
+
+    // Make sure the identity of this thread is that of the local process,
+    // and keep track of what that identity token actually is.
+    Binder.clearCallingIdentity();
+    final long ident = Binder.clearCallingIdentity();
+
+    //无限循环
+    for (;;) {
+        Message msg = queue.next(); // might block
+        if (msg == null) {
+            // No message indicates that the message queue is quitting.
+            return;
+        }
+
+        // This must be in a local variable, in case a UI event sets the logger
+        Printer logging = me.mLogging;
+        if (logging != null) {
+            logging.println(&quot;&gt;&gt;&gt;&gt;&gt; Dispatching to &quot; + msg.target + &quot; &quot; +
+                    msg.callback + &quot;: &quot; + msg.what);
+        }
+
+        msg.target.dispatchMessage(msg);
+
+        if (logging != null) {
+            logging.println(&quot;&lt;&lt;&lt;&lt;&lt; Finished to &quot; + msg.target + &quot; &quot; + msg.callback);
+        }
+
+        // Make sure that during the course of dispatching the
+        // identity of the thread wasn&apos;t corrupted.
+        final long newIdent = Binder.clearCallingIdentity();
+        if (ident != newIdent) {
+            Log.wtf(TAG, &quot;Thread identity changed from 0x&quot;+ Long.toHexString(ident) + &quot; to 0x&quot;+ Long.toHexString(newIdent) + &quot; while dispatching to &quot;+ msg.target.getClass().getName() + &quot; &quot;+ msg.callback + &quot; what=&quot; + msg.what);
+        }
+
+        msg.recycleUnchecked();
+    }
+}
+</code></pre><p>这个方法的代码有点长，不去追究细节，只看整体逻辑。可以看出，在这个方法内部有个死循环，里面通过 MessageQueue 的 next() 方法获取下一条消息，没有获取到会阻塞。如果成功获取新消息，便调用 msg.target.dispatchMessage(msg)，msg.target是 Handler 对象(下一节会看到)，dispatchMessage 则是分发消息(此时已经运行在 UI 线程)，下面分析消息的发送及处理流程。</p>
+<p>在子线程发送消息时，是调用一系列的 sendMessage、sendMessageDelayed 以及 sendMessageAtTime 等方法，最终会辗转调用 sendMessageAtTime(Message msg, long uptimeMillis)，代码如下：</p>
+<pre><code>public boolean sendMessageAtTime(Message msg, long uptimeMillis) {
+    MessageQueue queue = mQueue;
+    if (queue == null) {
+        RuntimeException e = new RuntimeException(
+                this + &quot; sendMessageAtTime() called with no mQueue&quot;);
+        Log.w(&quot;Looper&quot;, e.getMessage(), e);
+        return false;
+    }
+    return enqueueMessage(queue, msg, uptimeMillis);
+}
+
+private boolean enqueueMessage(MessageQueue queue, Message msg, long uptimeMillis) {
+    msg.target = this;
+    if (mAsynchronous) {
+        msg.setAsynchronous(true);
+    }
+    return queue.enqueueMessage(msg, uptimeMillis);
+}
+</code></pre><p>消息插入消息队列后， Looper 负责从队列中取出，然后调用 Handler 的 dispatchMessage 方法。接下来看看这个方法是怎么处理消息的：</p>
+<pre><code>public void dispatchMessage(Message msg) {
+    if (msg.callback != null) {
+        handleCallback(msg);
+    } else {
+        if (mCallback != null) {
+            if (mCallback.handleMessage(msg)) {
+                return;
+            }
+        }
+        handleMessage(msg);
+    }
+}
+</code></pre><p>首先，如果消息的 callback 不是空，便调用 handleCallback 处理。否则判断 Handler 的 mCallback 是否为空，不为空则调用它的 handleMessage方法。如果仍然为空，才调用 Handler 自身的 handleMessage，也就是我们创建 Handler 时重写的方法。</p>
+<p>如果发送消息时调用 Handler 的 post(Runnable r)方法，会把 Runnable封装到消息对象的 callback，然后调用 sendMessageDelayed，相关代码如下：</p>
+<pre><code>public final boolean post(Runnable r)
+{
+   return  sendMessageDelayed(getPostMessage(r), 0);
+}
+private static Message getPostMessage(Runnable r) {
+    Message m = Message.obtain();
+    m.callback = r;
+    return m;
+}
+</code></pre><p>此时在 dispatchMessage中便会调用 handleCallback进行处理：</p>
+<pre><code>private static void handleCallback(Message message) {
+    message.callback.run();
+}
+</code></pre><p>可以看到是直接调用了 run 方法处理消息。</p>
+<p>如果在创建 Handler时，直接提供一个 Callback 对象，消息就交给这个对象的 handleMessage 方法处理。Callback 是 Handler 内部的一个接口：</p>
+<p>public interface Callback {<br>    public boolean handleMessage(Message msg);<br>}<br>以上便是消息发送与处理的流程，发送时是在子线程，但处理时 dispatchMessage 方法运行在主线程。</p>
+
       
 
       
@@ -310,6 +497,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/01/20/Acitivity-View-Window理解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Acitivity View Window理解
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/01/20/进程与线程的关系/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">进程与线程的关系</div>
@@ -339,7 +535,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler-的用法"><span class="toc-number">1.1.</span> <span class="toc-text">Handler 的用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handler-构造函数源码"><span class="toc-number">1.2.</span> <span class="toc-text">Handler 构造函数源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Looper"><span class="toc-number">1.3.</span> <span class="toc-text">Looper</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -455,11 +651,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,17 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wenergou.top">
-  <title>Tag: 随笔 | 温二狗</title>
+  <title>Acitivity View Window理解 | 温二狗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温二狗">
-<meta property="og:url" content="http://wenergou.top/tags/随笔/index.html">
+  <meta name="description" content="为什么要设计Activity View Window首先来看一张图：  用一句话来联系他们之间的关系： Activity就像工匠，Window就像是窗户，View就像是窗花，LayoutInflater像剪刀，Xml配置像窗花图纸。Android根据他们不同的职能让他们各斯其活，同时也相互配合展示给我们灵活、精致的界面。 我们的工匠大神Activity一个应用程序里所有的界面展示都来自于Activ">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Acitivity View Window理解">
+<meta property="og:url" content="http://wenergou.top/2018/01/20/Acitivity-View-Window理解/index.html">
 <meta property="og:site_name" content="温二狗">
-<meta property="og:description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+<meta property="og:description" content="为什么要设计Activity View Window首先来看一张图：  用一句话来联系他们之间的关系： Activity就像工匠，Window就像是窗户，View就像是窗花，LayoutInflater像剪刀，Xml配置像窗花图纸。Android根据他们不同的职能让他们各斯其活，同时也相互配合展示给我们灵活、精致的界面。 我们的工匠大神Activity一个应用程序里所有的界面展示都来自于Activ">
+<meta property="og:image" content="http://wenergou.top/images/Activity.png">
+<meta property="og:image" content="http://wenergou.top/images/window1.png">
+<meta property="og:image" content="http://wenergou.top/images/window2.png">
+<meta property="og:image" content="http://wenergou.top/images/window3.png">
+<meta property="og:image" content="http://wenergou.top/images/window4.png">
+<meta property="og:image" content="http://wenergou.top/images/setContentView.png">
+<meta property="og:image" content="http://wenergou.top/images/Activity.png">
+<meta property="og:image" content="http://wenergou.top/images/show.png">
+<meta property="og:image" content="http://wenergou.top/images/phone.png">
+<meta property="og:updated_time" content="2018-01-20T07:12:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="温二狗">
-<meta name="twitter:description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+<meta name="twitter:title" content="Acitivity View Window理解">
+<meta name="twitter:description" content="为什么要设计Activity View Window首先来看一张图：  用一句话来联系他们之间的关系： Activity就像工匠，Window就像是窗户，View就像是窗花，LayoutInflater像剪刀，Xml配置像窗花图纸。Android根据他们不同的职能让他们各斯其活，同时也相互配合展示给我们灵活、精致的界面。 我们的工匠大神Activity一个应用程序里所有的界面展示都来自于Activ">
+<meta name="twitter:image" content="http://wenergou.top/images/Activity.png">
   
     <link rel="alternative" href="/atom.xml" title="温二狗" type="application/atom+xml">
   
@@ -174,298 +186,246 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Acitivity-View-Window理解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Acitivity View Window理解
+    </h1>
+  
+
+        
+        <a href="/2018/01/20/Acitivity-View-Window理解/" class="archive-article-date">
+  	<time datetime="2018-01-20T05:49:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="为什么要设计Activity-View-Window"><a href="#为什么要设计Activity-View-Window" class="headerlink" title="为什么要设计Activity View Window"></a>为什么要设计Activity View Window</h1><p>首先来看一张图：</p>
+<p><img src="/images/Activity.png" alt=""></p>
+<p>用一句话来联系他们之间的关系：</p>
+<p>Activity就像工匠，Window就像是窗户，View就像是窗花，LayoutInflater像剪刀，Xml配置像窗花图纸。Android根据他们不同的职能让他们各斯其活，同时也相互配合展示给我们灵活、精致的界面。</p>
+<h2 id="我们的工匠大神Activity"><a href="#我们的工匠大神Activity" class="headerlink" title="我们的工匠大神Activity"></a>我们的工匠大神Activity</h2><p>一个应用程序里所有的界面展示都来自于Activity，那Activity是如何工作的呢？</p>
+<p>Activity工作过程：</p>
+<a id="more"></a>
+<p>要了解Activity工作过程，首先从启动开始，下面没有贴源码，因为本文章主题是三者之间的关系，而Activity东西太多了，就简单的讲一下。<br>启动：</p>
+<p>从startActivity开始，它会调用到Instrumentation，然后Instrumentation通过Binder向AMS(ActivityManagerService)发请求，通过PIC启动Activity。而这个AIDL操作的方法定义在ApplicationThread中（里面包括了Activity所有的生命周期方法的调用）。然后通过Handle回到主线程启动activity。<br>因为中间流程太多，详细写出来容易造成“见其树木，而不见其森林”的局面。</p>
+<p>启动Activity所执行的操作：</p>
+<ol>
+<li>从ActivityClientRecord中获取待启动的Activity组件信息</li>
+<li>通过Instrumentation的newActivity方法使用类加载器创建Activity对象</li>
+<li>通过LoadedApk的mackApplication方法来尝试创建Application对象（如果Application已经创建，则不会重复创建）</li>
+<li>创建ContextImpl对象，并通过Activity的attach方法来完成一些重要数据的初始化（包括让Activity跟Window关联）</li>
+<li>调用Activity的onCreate方法</li>
+</ol>
+<p>Activity其他生命周期的调用都是通过Binder向AMS发请求，然后执行的PIC操作，最后从<br>ApplicationThread对生命周期调用。下面是重点：Activity、View、Window三者的关系。</p>
+<h2 id="美丽的窗花View"><a href="#美丽的窗花View" class="headerlink" title="美丽的窗花View"></a>美丽的窗花View</h2><p>View如何跟Activity关联起来的？<br>其实View并不是直接跟Activity关联起来的，而是通过Window这个中间人。如前面所说，View只是窗花，Window才是直接关联到Activity上的。那么：<br>View如何跟Window关联起来呢？</p>
+<p>下面先了解一下Window，就可以理解这个问题了</p>
+<h2 id="灵活的窗户Window"><a href="#灵活的窗户Window" class="headerlink" title="灵活的窗户Window"></a>灵活的窗户Window</h2><p>Window如何跟Activity关联？每一个Activity都包含了唯一一个PhoneWindow，这个就是Activity根Window（之所以是说根Window是因为在它上面可以增加更多其他的Window，例如：弹出框（dialog））</p>
+<p>那么，PhoneWindow如何跟Activity关联起来的呢？来个最简单的，setContentView其实就让View与Window关联，Window跟Activity关联起来了。</p>
+<p>那setContentView不是View跟Activity关联吗？<br>真相见Activity源码：</p>
+<p><img src="/images/window1.png" alt=""></p>
+<p>明显是将layout设置到Window上了，那这个 getWindow() 返回的Window是谁呢？ 是不是前面提及PhoneWindow？</p>
+<p><img src="/images/window2.png" alt=""></p>
+<p><img src="/images/window3.png" alt=""></p>
+<p>真的是PhoneWindow，在 attach 的时候执行了PhoneWindow的初始化。<br>提到了 activity 的 attach 方法，该方法是在执行Activity启动时在ActivityThread里面的performLaunchActivity调用的。performLaunchActivity里面做了很多Activity启动过程具体的操作，例如：主题、记录Activity栈、执行Activity onCreate 方法等。</p>
+<h3 id="这么说来setContentView其实就是将View设置到Window上，Activity展示的其实是PhoneWindow上的内容。那么其实-setContentView-实际上是调用的-getWindow-setContentView。"><a href="#这么说来setContentView其实就是将View设置到Window上，Activity展示的其实是PhoneWindow上的内容。那么其实-setContentView-实际上是调用的-getWindow-setContentView。" class="headerlink" title="这么说来setContentView其实就是将View设置到Window上，Activity展示的其实是PhoneWindow上的内容。那么其实 setContentView 实际上是调用的 getWindow().setContentView。"></a>这么说来setContentView其实就是将View设置到Window上，Activity展示的其实是PhoneWindow上的内容。那么其实 setContentView 实际上是调用的 getWindow().setContentView。</h3><p>PhoneWindow是个什么东西？它作为Activity跟View的中间人，它做了哪些工作？</p>
+<p><img src="/images/window4.png" alt=""></p>
+<p>首先 PhoneWindow 本身就是一个 Window。</p>
+<p>我们来看看setContentView源码</p>
+<p><img src="/images/setContentView.png" alt=""></p>
+<p>这里的 mContentParent 其实是一个 ViewGroup。这么看来就简单了。PhoneWindow里面包含了一个ViewGroup，setContentView其实就是将layout设置到了这个ViewGroup上了。</p>
+<p>现在看看我们上面的第一张图</p>
+<p><img src="/images/Activity.png" alt=""></p>
+<p>我们会有个疑问 DecorView是什么？</p>
+<p>它直接跟PhoneWindow关联起来的，有了mContentParent，为啥还需要DecorView？<br>如图所见，DecorView它不仅包含了我们自己的布局，它还包含了titleBar。为啥需要？结构上的需要，更好的管理布局。</p>
+<p>Window作为中间人，已经关联了Activity跟View了，那么如果处理Activity跟View之间的关系呢？<br>是时候揭开Window这个神秘面纱了：<br>之前提的PhoneWindow是继承于Window的，它是连接Activity跟View之间的桥梁。所有对View的一些操作都需要借助这个桥梁。</p>
+<p>为了更好的理解Window，我们先从Dialog入手。在Activity中展示一个对话框的流程是怎样的？为啥从Dialog入手，因为它里面包含了Window，而且可以直接操作Window里面的View，这样就能了解Window是如何控制View的，以及自定义Window怎么展示到Activity上（因为了解Dialog，就知道怎么让自定义的Window与Activity关联了）</p>
+<p>我们省去所有的Dialog build的方法。直接从AlertDialog.show()方法开始：</p>
+<p><img src="/images/show.png" alt=""></p>
+<p><img src="/images/phone.png" alt=""></p>
+<p>真相揭晓了。Window对View的操作是通过WindowManager来处理的。WindowManager提供在Window上添加View、移除View、更新View的操作。<br>然而可见 WindowManager 其实只是一个接口，真正的实现类是WindowManagerImpl<br>以addView为例，里面有点绕，直接忽略中间过程，最后执行addView的是通过ViewRootImpl完成Window的添加工作的，它执行了View的requestLayout方法，在requestLayout方法里会通过WindowSession完成Window的添加过程WindowSession是IWindowSession类型的，它是一个Binder对象，因此Window的添加工作其实是一次IPC调用。好了，大致流程就是如此，这样就更新界面了。</p>
+<p>##总结：</p>
+<ol>
+<li><p>为什么要设计Activity、View、Window？<br>Activity就像工匠，Window就像是窗户，View就像是窗花，LayoutInflater像剪刀，Xml配置像窗花图纸。<br>Android根据他们不同的职能让他们各斯其活，同时也相互配合展示给我们灵活、精致的界面。为啥这样设计？因为这样的结构更好管理。就像为啥需要使用MVP、MVVM、各种设计模式一样。</p>
+</li>
+<li><p>Activity工作过程是什么样的？以Activity启动过程为例，Activity启动时是通过Binder向AMS(ActivityManagerService)发请求，通过PIC启动Activity的。</p>
+</li>
+<li><p>Window是什么？它的职能是什么？Activity要管理View需要通过Window来间接管理的。Window通过addView()、removeView()、updateViewLayout()这三个方法来管理View的。</p>
+</li>
+<li><p>View跟Window有什么联系？View需要通过Window来展示在Activity上。</p>
+</li>
+<li><p>Activity、View、Window三者如何关联？Activity包含了一个PhoneWindow，而PhoneWindow就是继承于Window的，Activity通过setContentView将View设置到了PhoneWindow上，而View通过WindowManager的addView()、removeView()、updateViewLayout()对View进行管理。Window的添加过程以及Activity的启动流程都是一次IPC的过程。Activity的启动需要通过AMS完成；Window的添加过程需要通过WindowSession完成。</p>
+</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/weimoney.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/20/进程与线程的关系/" class="archive-article-date">
-  	<time datetime="2018-01-19T16:52:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/20/进程与线程的关系/">进程与线程的关系</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/17/command-usr-bin-clang-failed-with-exit-status-1解决办法/" class="archive-article-date">
-  	<time datetime="2018-01-17T12:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/17/command-usr-bin-clang-failed-with-exit-status-1解决办法/"> command &#39;/usr/bin/clang&#39; failed with exit status 1解决办法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/19/Mac-如何设置默认播放器/" class="archive-article-date">
-  	<time datetime="2017-11-19T00:49:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/19/Mac-如何设置默认播放器/">Mac 如何设置默认播放器</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://wenergou.top/2018/01/20/Acitivity-View-Window理解/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/23/免费获取知网论文/" class="archive-article-date">
-  	<time datetime="2017-10-23T04:19:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/20/Handler-机制详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android Handler 机制详解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/23/免费获取知网论文/">免费获取知网论文</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么要设计Activity-View-Window"><span class="toc-number">1.</span> <span class="toc-text">为什么要设计Activity View Window</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#我们的工匠大神Activity"><span class="toc-number">1.1.</span> <span class="toc-text">我们的工匠大神Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#美丽的窗花View"><span class="toc-number">1.2.</span> <span class="toc-text">美丽的窗花View</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#灵活的窗户Window"><span class="toc-number">1.3.</span> <span class="toc-text">灵活的窗户Window</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#这么说来setContentView其实就是将View设置到Window上，Activity展示的其实是PhoneWindow上的内容。那么其实-setContentView-实际上是调用的-getWindow-setContentView。"><span class="toc-number">1.3.1.</span> <span class="toc-text">这么说来setContentView其实就是将View设置到Window上，Activity展示的其实是PhoneWindow上的内容。那么其实 setContentView 实际上是调用的 getWindow().setContentView。</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/07/神奇的快捷键/" class="archive-article-date">
-  	<time datetime="2017-10-07T11:05:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-07</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/07/神奇的快捷键/">神奇的快捷键</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/03/Markdow高级语法学习/" class="archive-article-date">
-  	<time datetime="2017-10-02T18:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/03/Markdow高级语法学习/">Markdown高级语法学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/02/Markdown-语法学习/" class="archive-article-date">
-  	<time datetime="2017-10-02T15:52:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/02/Markdown-语法学习/">Markdown 语法学习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -488,9 +448,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

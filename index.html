@@ -176,6 +176,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Acitivity-View-Window理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/20/Acitivity-View-Window理解/">Acitivity View Window理解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/20/Acitivity-View-Window理解/" class="archive-article-date">
+  	<time datetime="2018-01-20T05:49:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="为什么要设计Activity-View-Window"><a href="#为什么要设计Activity-View-Window" class="headerlink" title="为什么要设计Activity View Window"></a>为什么要设计Activity View Window</h1><p>首先来看一张图：</p>
+<p><img src="/images/Activity.png" alt=""></p>
+<p>用一句话来联系他们之间的关系：</p>
+<p>Activity就像工匠，Window就像是窗户，View就像是窗花，LayoutInflater像剪刀，Xml配置像窗花图纸。Android根据他们不同的职能让他们各斯其活，同时也相互配合展示给我们灵活、精致的界面。</p>
+<h2 id="我们的工匠大神Activity"><a href="#我们的工匠大神Activity" class="headerlink" title="我们的工匠大神Activity"></a>我们的工匠大神Activity</h2><p>一个应用程序里所有的界面展示都来自于Activity，那Activity是如何工作的呢？</p>
+<p>Activity工作过程：</p>
+        
+          <a class="article-more-a" href="/2018/01/20/Acitivity-View-Window理解/#more">More >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/20/Acitivity-View-Window理解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Handler-机制详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -183,7 +264,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/20/Handler-机制详解/">Handler 机制详解</a>
+      <a class="article-title" href="/2018/01/20/Handler-机制详解/">Android Handler 机制详解</a>
     </h1>
   
 
@@ -196,6 +277,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Android中我们常常碰到需要更新ui操作，但是我们知道在主线程中android ui的刷新 是60毫秒</p>
+<p>首先我们要知道默认情况下，在android中Activity的最长执行时间是5秒，BroadcastReceiver的最长执行时间则是10秒。</p>
+<p>第一：什么会引发ANR？<br>在Android里，应用程序的响应性是由Activity Manager和WindowManager系统服务监视的 当它监测到以下情况中的一个时，Android就会针对特定的应用程序显示ANR：</p>
+<ol>
+<li>在5秒内没有响应输入的事件（例如，按键按下，屏幕触摸）</li>
+<li>BroadcastReceiver在10秒内没有执行完毕</li>
+</ol>
+<p>造成以上两点的原因有很多，比如在主线程中做了非常耗时的操作，比如说是下载，io异常等。</p>
+<p>在 Android 中，只有主线程才能操作 UI，但是主线程不能进行耗时操作，否则会阻塞线程，产生 ANR 异常，所以常常把耗时操作放到其它子线程进行。如果在子线程中需要更新 UI，一般是通过 Handler 发送消息，主线程接受消息并且进行相应的逻辑处理。除了直接使用 Handler，还可以通过 View 的 post 方法以及 Activity 的 runOnUiThread 方法来更新 UI，它们内部也是利用了 Handler 。</p>
+<h2 id="Handler-的用法"><a href="#Handler-的用法" class="headerlink" title="Handler 的用法"></a>Handler 的用法</h2>
+        
+          <a class="article-more-a" href="/2018/01/20/Handler-机制详解/#more">More >></a>
         
       
 
@@ -910,81 +1003,6 @@ print(name + age)
 
 
   
-    <article id="post-Mac-如何设置默认播放器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/19/Mac-如何设置默认播放器/">Mac 如何设置默认播放器</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/19/Mac-如何设置默认播放器/" class="archive-article-date">
-  	<time datetime="2017-11-19T00:49:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Mac-如何设置默认播放器"><a href="#Mac-如何设置默认播放器" class="headerlink" title="Mac 如何设置默认播放器"></a>Mac 如何设置默认播放器</h1><p>首先在Finder下面选中文件 右键打开显示简介（快捷键com+i）<br><img src="/images/Mac默认播放器.png" alt="mac默认"></p>
-<p>选择打开方式 选择你需要的软件， 全部更改就行<br><img src="/images/Mac默认.png" alt="打开方式"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/19/Mac-如何设置默认播放器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1086,11 +1104,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
              
               <li class="article-tag-list-item">
