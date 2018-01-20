@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wenergou.top">
-  <title>Tag: Android | 温二狗</title>
+  <title>Audio Manager类详解 | 温二狗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安卓 Python，Machine Leaning， AI， Deep Learning...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温二狗">
-<meta property="og:url" content="http://wenergou.top/tags/Android/index.html">
+  <meta name="description" content="AudioManager类位于android.Media 包中，该类提供访问控制音量和钤声模式的操作。  通过getSystemService(Context.AUDIO_SERVICE)方法获得AudioManager实例对象。 AudioManager audiomanage = (AudioManager)context.getSystemService(Context.AUDIO_SERV">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Audio Manager类详解">
+<meta property="og:url" content="http://wenergou.top/2018/01/20/Audio-Manager类详解/index.html">
 <meta property="og:site_name" content="温二狗">
-<meta property="og:description" content="安卓 Python，Machine Leaning， AI， Deep Learning...">
+<meta property="og:description" content="AudioManager类位于android.Media 包中，该类提供访问控制音量和钤声模式的操作。  通过getSystemService(Context.AUDIO_SERVICE)方法获得AudioManager实例对象。 AudioManager audiomanage = (AudioManager)context.getSystemService(Context.AUDIO_SERV">
+<meta property="og:updated_time" content="2018-01-20T07:45:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="温二狗">
-<meta name="twitter:description" content="安卓 Python，Machine Leaning， AI， Deep Learning...">
+<meta name="twitter:title" content="Audio Manager类详解">
+<meta name="twitter:description" content="AudioManager类位于android.Media 包中，该类提供访问控制音量和钤声模式的操作。  通过getSystemService(Context.AUDIO_SERVICE)方法获得AudioManager实例对象。 AudioManager audiomanage = (AudioManager)context.getSystemService(Context.AUDIO_SERV">
   
     <link rel="alternative" href="/atom.xml" title="温二狗" type="application/atom+xml">
   
@@ -174,236 +176,104 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Audio-Manager类详解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Audio Manager类详解
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/20/Audio-Manager类详解/" class="archive-article-date">
+
+        
+        <a href="/2018/01/20/Audio-Manager类详解/" class="archive-article-date">
   	<time datetime="2018-01-20T07:43:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/20/Audio-Manager类详解/">Audio Manager类详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/20/Acitivity-View-Window理解/" class="archive-article-date">
-  	<time datetime="2018-01-20T05:49:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/20/Acitivity-View-Window理解/">Acitivity View Window理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/20/Handler-机制详解/" class="archive-article-date">
-  	<time datetime="2018-01-19T16:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/20/Handler-机制详解/">Android Handler 机制详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/19/Fragment-详解/" class="archive-article-date">
-  	<time datetime="2018-01-19T12:36:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/19/Fragment-详解/">Fragment 源码详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/19/Android-Activity详解/" class="archive-article-date">
-  	<time datetime="2018-01-19T11:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/19/Android-Activity详解/">Android Activity详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <p>AudioManager类位于android.Media 包中，该类提供访问控制音量和钤声模式的操作。</p>
+<p> 通过getSystemService(Context.AUDIO_SERVICE)方法获得AudioManager实例对象。</p>
+<p>AudioManager audiomanage = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);</p>
+<p>audiomanager就是我们定义的控制系统声音的对象。</p>
+<p> 这里只讲述几个比较常用到的方法： </p>
+<p>adjustVolume(int direction, int flags) ——用来控制手机音量大小，当传入的第一个参数为AudioManager.ADJUST_LOWER 时，可将音量调小一个单位，传入AudioManager.ADJUST_RAISE时，则可以将音量调大一个单位。 </p>
+<p>adjustStreamVolume(int streamType, int direction, intflags)——（以步长）调节手机音量大小<br> 参数1：声音类型，可取为STREAM_VOICE_CALL（通话）、STREAM_SYSTEM（系统声音）、STREAM_RING（铃声）、STREAM_MUSIC（音乐）、STREAM_ALARM（闹铃声）<br> 参数2：调整音量的方向，可取ADJUST_LOWER（降低）、ADJUST_RAISE（升高）、ADJUST_SAME<br> 参数3：可选的标志位 </p>
+<p>setStreamVolume(int streamType, int index, intflags)——直接设置音量大小 </p>
+<p>getMode() ——返回当前音频模式，如 NORMAL（普通）, RINGTONE（铃声）, orIN_CALL（通话） </p>
+<p>setMode()——设置声音模式，可取值NORMAL（普通）, RINGTONE（铃声）, or IN_CALL（通话） </p>
+<p>getRingerMode()——返回当前的铃声模式。如RINGER_MODE_NORMAL（普通）、RINGER_MODE_SILENT（静音）、RINGER_MODE_VIBRATE（震动） </p>
+<p>setRingerMode(int ringerMode) ——改变铃声模式 </p>
+<p>getStreamVolume(int streamType)——取得当前手机的音量，最大值为7，最小值为0，当为0时，手机自动将模式调整为“震动模式”。 </p>
+<p>getStreamMaxVolume（int streamType）——获得当前手机最大铃声。 </p>
+<p>setStreamMute(int streamType, boolean state </p>
+<p>//音量控制,初始化定义<br>AudioManager mAudioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);</p>
+<p>//最大音量</p>
+<p>intmaxVolume =mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);</p>
+<p>//当前音量</p>
+<p>intcurrentVolume =mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);</p>
+<p>直接控制音量的多少:</p>
+<p>以一步步长控制音量的增减，并弹出系统默认音量控制条：</p>
+<p> 常用方法：<br>android audioManager获取音量： </p>
+<p> 先获取AudioManager实例，<br>AudioManager mAudioManager = (AudioManager)getSystemService(Context. AUDIO_SERVICE); </p>
+<p>//通话音量</p>
+<p>int max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL ); </p>
+<p>int current = mAudioManager.getStreamVolume(AudioManager.STREAM_VOICE_CALL ); </p>
+<p>//系统音量</p>
+<p>int max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_SYSTEM ); </p>
+<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_SYSTEM ); </p>
+<p>//铃声音量</p>
+<p>max = mAudioManager.getStreamMaxVolume( AudioManager.STREAM_RING); </p>
+<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_RING ); </p>
+<p>//音乐音量</p>
+<p>max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC ); </p>
+<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC ); </p>
+<p>//提示声音音量</p>
+<p>max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM ); </p>
+<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_ALARM ); </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/weimoney.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/01/PackageManager的功能：/" class="archive-article-date">
-  	<time datetime="2017-01-01T10:31:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/01/PackageManager的功能：/">PackageManager的功能：</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -415,143 +285,119 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/30/ContentValues详解/" class="archive-article-date">
-  	<time datetime="2016-12-30T10:29:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/30/ContentValues详解/">ContentValues详解</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://wenergou.top/2018/01/20/Audio-Manager类详解/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/28/android-同步到github详细操作/" class="archive-article-date">
-  	<time datetime="2016-12-28T10:25:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/20/Android-学习计划/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android 学习与面试心得</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/28/android-同步到github详细操作/">android 同步到github详细操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/26/Android-LayoutInfalter详解/" class="archive-article-date">
-  	<time datetime="2016-12-26T10:14:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-26</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/26/Android-LayoutInfalter详解/">Android LayoutInfalter详解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -574,9 +420,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

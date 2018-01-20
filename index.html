@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://wenergou.top">
   <title>温二狗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+  <meta name="description" content="安卓 Python，Machine Leaning， AI， Deep Learning...">
 <meta property="og:type" content="website">
 <meta property="og:title" content="温二狗">
 <meta property="og:url" content="http://wenergou.top/index.html">
 <meta property="og:site_name" content="温二狗">
-<meta property="og:description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+<meta property="og:description" content="安卓 Python，Machine Leaning， AI， Deep Learning...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="温二狗">
-<meta name="twitter:description" content="安卓半路出家学 Python，Machine Leaning， AI， Deep Learning...">
+<meta name="twitter:description" content="安卓 Python，Machine Leaning， AI， Deep Learning...">
   
     <link rel="alternative" href="/atom.xml" title="温二狗" type="application/atom+xml">
   
@@ -175,6 +175,118 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Audio-Manager类详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/20/Audio-Manager类详解/">Audio Manager类详解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/20/Audio-Manager类详解/" class="archive-article-date">
+  	<time datetime="2018-01-20T07:43:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>AudioManager类位于android.Media 包中，该类提供访问控制音量和钤声模式的操作。</p>
+<p> 通过getSystemService(Context.AUDIO_SERVICE)方法获得AudioManager实例对象。</p>
+<p>AudioManager audiomanage = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);</p>
+<p>audiomanager就是我们定义的控制系统声音的对象。</p>
+<p> 这里只讲述几个比较常用到的方法： </p>
+<p>adjustVolume(int direction, int flags) ——用来控制手机音量大小，当传入的第一个参数为AudioManager.ADJUST_LOWER 时，可将音量调小一个单位，传入AudioManager.ADJUST_RAISE时，则可以将音量调大一个单位。 </p>
+<p>adjustStreamVolume(int streamType, int direction, intflags)——（以步长）调节手机音量大小<br> 参数1：声音类型，可取为STREAM_VOICE_CALL（通话）、STREAM_SYSTEM（系统声音）、STREAM_RING（铃声）、STREAM_MUSIC（音乐）、STREAM_ALARM（闹铃声）<br> 参数2：调整音量的方向，可取ADJUST_LOWER（降低）、ADJUST_RAISE（升高）、ADJUST_SAME<br> 参数3：可选的标志位 </p>
+<p>setStreamVolume(int streamType, int index, intflags)——直接设置音量大小 </p>
+<p>getMode() ——返回当前音频模式，如 NORMAL（普通）, RINGTONE（铃声）, orIN_CALL（通话） </p>
+<p>setMode()——设置声音模式，可取值NORMAL（普通）, RINGTONE（铃声）, or IN_CALL（通话） </p>
+<p>getRingerMode()——返回当前的铃声模式。如RINGER_MODE_NORMAL（普通）、RINGER_MODE_SILENT（静音）、RINGER_MODE_VIBRATE（震动） </p>
+<p>setRingerMode(int ringerMode) ——改变铃声模式 </p>
+<p>getStreamVolume(int streamType)——取得当前手机的音量，最大值为7，最小值为0，当为0时，手机自动将模式调整为“震动模式”。 </p>
+<p>getStreamMaxVolume（int streamType）——获得当前手机最大铃声。 </p>
+<p>setStreamMute(int streamType, boolean state </p>
+<p>//音量控制,初始化定义<br>AudioManager mAudioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);</p>
+<p>//最大音量</p>
+<p>intmaxVolume =mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);</p>
+<p>//当前音量</p>
+<p>intcurrentVolume =mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);</p>
+<p>直接控制音量的多少:</p>
+<p>以一步步长控制音量的增减，并弹出系统默认音量控制条：</p>
+<p> 常用方法：<br>android audioManager获取音量： </p>
+<p> 先获取AudioManager实例，<br>AudioManager mAudioManager = (AudioManager)getSystemService(Context. AUDIO_SERVICE); </p>
+<p>//通话音量</p>
+<p>int max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL ); </p>
+<p>int current = mAudioManager.getStreamVolume(AudioManager.STREAM_VOICE_CALL ); </p>
+<p>//系统音量</p>
+<p>int max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_SYSTEM ); </p>
+<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_SYSTEM ); </p>
+<p>//铃声音量</p>
+<p>max = mAudioManager.getStreamMaxVolume( AudioManager.STREAM_RING); </p>
+<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_RING ); </p>
+<p>//音乐音量</p>
+<p>max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC ); </p>
+<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC ); </p>
+<p>//提示声音音量</p>
+<p>max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM ); </p>
+<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_ALARM ); </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/20/Audio-Manager类详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Android-学习计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1026,83 +1138,6 @@ args 函数需要的参数，以 tuple 的形式传入
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/01/17/command-usr-bin-clang-failed-with-exit-status-1解决办法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-KNN-k近邻算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/31/KNN-k近邻算法/">KNN k近邻算法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/31/KNN-k近邻算法/" class="archive-article-date">
-  	<time datetime="2017-12-31T10:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="k-近邻算法"><a href="#k-近邻算法" class="headerlink" title="k-近邻算法"></a>k-近邻算法</h1><p>什么是K-近邻?<br>一句话总结，物以类聚，人以群分，更‘靠近’哪一个点，就认为它属于那一个点。<br>简单的说k-近邻算法采用测量不同的特征值之间的距离方法进行方法分类</p>
-<p>优点：精度高，对异常值不敏感<br>缺点：计算复杂，空间复杂</p>
-        
-          <a class="article-more-a" href="/2017/12/31/KNN-k近邻算法/#more">More >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/31/KNN-k近邻算法/">展开全文 >></a>
         </p>
       
 
