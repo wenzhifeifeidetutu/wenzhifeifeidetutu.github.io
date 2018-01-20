@@ -202,40 +202,10 @@
 <p>audiomanager就是我们定义的控制系统声音的对象。</p>
 <p> 这里只讲述几个比较常用到的方法： </p>
 <p>adjustVolume(int direction, int flags) ——用来控制手机音量大小，当传入的第一个参数为AudioManager.ADJUST_LOWER 时，可将音量调小一个单位，传入AudioManager.ADJUST_RAISE时，则可以将音量调大一个单位。 </p>
-<p>adjustStreamVolume(int streamType, int direction, intflags)——（以步长）调节手机音量大小<br> 参数1：声音类型，可取为STREAM_VOICE_CALL（通话）、STREAM_SYSTEM（系统声音）、STREAM_RING（铃声）、STREAM_MUSIC（音乐）、STREAM_ALARM（闹铃声）<br> 参数2：调整音量的方向，可取ADJUST_LOWER（降低）、ADJUST_RAISE（升高）、ADJUST_SAME<br> 参数3：可选的标志位 </p>
-<p>setStreamVolume(int streamType, int index, intflags)——直接设置音量大小 </p>
-<p>getMode() ——返回当前音频模式，如 NORMAL（普通）, RINGTONE（铃声）, orIN_CALL（通话） </p>
-<p>setMode()——设置声音模式，可取值NORMAL（普通）, RINGTONE（铃声）, or IN_CALL（通话） </p>
-<p>getRingerMode()——返回当前的铃声模式。如RINGER_MODE_NORMAL（普通）、RINGER_MODE_SILENT（静音）、RINGER_MODE_VIBRATE（震动） </p>
-<p>setRingerMode(int ringerMode) ——改变铃声模式 </p>
-<p>getStreamVolume(int streamType)——取得当前手机的音量，最大值为7，最小值为0，当为0时，手机自动将模式调整为“震动模式”。 </p>
-<p>getStreamMaxVolume（int streamType）——获得当前手机最大铃声。 </p>
-<p>setStreamMute(int streamType, boolean state </p>
-<p>//音量控制,初始化定义<br>AudioManager mAudioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);</p>
-<p>//最大音量</p>
-<p>intmaxVolume =mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);</p>
-<p>//当前音量</p>
-<p>intcurrentVolume =mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);</p>
-<p>直接控制音量的多少:</p>
-<p>以一步步长控制音量的增减，并弹出系统默认音量控制条：</p>
-<p> 常用方法：<br>android audioManager获取音量： </p>
-<p> 先获取AudioManager实例，<br>AudioManager mAudioManager = (AudioManager)getSystemService(Context. AUDIO_SERVICE); </p>
-<p>//通话音量</p>
-<p>int max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL ); </p>
-<p>int current = mAudioManager.getStreamVolume(AudioManager.STREAM_VOICE_CALL ); </p>
-<p>//系统音量</p>
-<p>int max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_SYSTEM ); </p>
-<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_SYSTEM ); </p>
-<p>//铃声音量</p>
-<p>max = mAudioManager.getStreamMaxVolume( AudioManager.STREAM_RING); </p>
-<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_RING ); </p>
-<p>//音乐音量</p>
-<p>max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC ); </p>
-<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC ); </p>
-<p>//提示声音音量</p>
-<p>max = mAudioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM ); </p>
-<p>current = mAudioManager.getStreamVolume(AudioManager.STREAM_ALARM ); </p>
-
+<p>adjustStreamVolume(int streamType, int direction, intflags)——（以步长）调节手机音量大小<br> 参数1：声音类型，可取为STREAM_VOICE_CALL（通话）、STREAM_SYSTEM（系统声音）、STREAM_RING（铃声）、STREAM_MUSIC（音乐）、STREAM_ALARM（闹铃声）<br> 参数2：调整音量的方向，可取ADJUST_LOWER（降低）、ADJUST_RAISE（升高）、ADJUST_SAME<br> 参数3：可选的标志位<br>
+        
+          <a class="article-more-a" href="/2018/01/20/Audio-Manager类详解/#more">More >></a>
+        
       
 
       
@@ -322,123 +292,10 @@
 </li>
 <li><p>Binder机制(要把原理弄懂) </p>
 </li>
-<li><p>ListView的优化 √</p>
-</li>
-<li><p>Android的缓存(LRUCache，DiskLRUCache)原理</p>
-</li>
-<li><p>Bitmap的缓存优化</p>
-</li>
-<li><p>Android内存泄露及如何检测内存泄漏</p>
-</li>
-<li><p>Android的数据存储方式</p>
-</li>
-<li><p>本地广播与全局广播</p>
-</li>
-<li><p>Service和IntentService区别</p>
-</li>
-<li><p>View的分发机制</p>
-</li>
-<li><p>View的绘制流程</p>
-</li>
-<li><p>Android调优及调优工具</p>
-</li>
-<li><p>网络框架实现原理，如何实现HTTP传输</p>
-</li>
-<li><p>断点续传</p>
-</li>
 </ol>
-<p>Java:</p>
-<p>《Java编程思想》</p>
-<p>《深入理解Java虚拟机》</p>
-<p>面试被考到的知识点：</p>
-<ol>
-<li><p>集合类底层实现原理(ArrayList, LinkedList, HashSet, TreeSet, HashMap, TreeMap, Queue)</p>
-</li>
-<li><p>并发集合底层实现原理</p>
-</li>
-<li><p>Synchronized获取的锁(一般是代码场景题)，类锁和对象锁</p>
-</li>
-<li><p>synchronized和Lock的区别</p>
-</li>
-<li><p>volatile的作用及实现原理</p>
-</li>
-<li><p>ThreadLocal的作用及实现原理</p>
-</li>
-<li><p>堆和栈的区别</p>
-</li>
-<li><p>进程和线程的区别</p>
-</li>
-<li><p>GC机制(可以先回答GC算法，再说GCroot，再回答分代)</p>
-</li>
-<li><p>类加载机制</p>
-</li>
-<li><p>Java内存模型</p>
-</li>
-<li><p>内部类造成内存泄露的原因</p>
-</li>
-<li><p>Jvm调优</p>
-</li>
-<li><p>java并发</p>
-</li>
-</ol>
-<p>数据结构与算法:</p>
-<p>我看的书：《数据结构与算法Java版》</p>
-<p>笔试中选择题和编程题会考~</p>
-<p>面试被考到的知识点：</p>
-<ol>
-<li><p>链表</p>
-</li>
-<li><p>栈和队列</p>
-</li>
-<li><p>二叉树，二叉查找树，B+树</p>
-</li>
-<li><p>排序算法，查找算法</p>
-</li>
-<li><p>还有就是手撕代码，动态规划问题，贪婪算法，回溯法</p>
-</li>
-</ol>
-<p>计算机网络:</p>
-<p>《图解TCP/IP》(比较容易看懂)</p>
-<p>面试被考到的知识点：</p>
-<ol>
-<li><p>TCP与UDP的区别</p>
-</li>
-<li><p>TCP/IP协议分层</p>
-</li>
-<li><p>三次握手，四次挥手</p>
-</li>
-<li><p>http报文</p>
-</li>
-<li><p>http get与post方法的区别</p>
-</li>
-<li><p>HTTP与https的区别</p>
-</li>
-</ol>
-<p>设计模式:</p>
-<p>看的网上的资料</p>
-<p>面试被考到的知识点：</p>
-<ol>
-<li><p>单例(至少要会写代码)</p>
-</li>
-<li><p>观察者模式</p>
-</li>
-<li><p>适配器模式</p>
-</li>
-</ol>
-<p>数据库:</p>
-<p>学校发的教科书～</p>
-<p>一般是笔试的时候会考，面试问的比较少，但也有</p>
-<p>面试被考到的知识点：</p>
-<ol>
-<li><p>表创建语句</p>
-</li>
-<li><p>视图的作用，修改视图中的数据能不能修改表中数据</p>
-</li>
-<li><p>索引，索引的作用及底层原理</p>
-</li>
-</ol>
-<p>近期任务 按照清单来全部完成 然后开始进阶 迫切Android 数据结构 算法+编程珠玑，pat开始刷和蓝桥杯参加一下 python 爬虫 和机器学习</p>
-
+        
+          <a class="article-more-a" href="/2018/01/20/Android-学习计划/#more">More >></a>
+        
       
 
       
@@ -518,26 +375,10 @@
 <p>　　│├LinkedList </p>
 <p>　　│├ArrayList </p>
 <p>　　│└Vector </p>
-<p>　　│　└Stack </p>
-<p>　　└Set </p>
-<p>　　Map </p>
-<p>　　├Hashtable </p>
-<p>　　├HashMap </p>
-<p>　　└WeakHashMap </p>
-<p>Collection是最基本的集合接口，一个Collection代表一组Object，即Collection的元素。一些Collection允许相同的元素而另一些不行。一些能排序而另一些不行。Java JDK不能提供直接继承自Collection的类，Java JDK提供的类都是继承自Collection的”子接口”，如:List和Set。 </p>
-<p>注意：Map没有继承Collection接口，Map提供key到value的映射。一个Map中不能包含相同key，每个key只能映射一个value。Map接口提供3种集合的视图，Map的内容可以被当做一组key集合，一组value集合，或者一组key-value映射。 </p>
-<p>##详细介绍： </p>
-<p>List特点：元素有放入顺序，元素可重复<br>Map特点：元素按键值对存储，无放入顺序</p>
-<p>Set特点：元素无放入顺序，元素不可重复（注意：元素虽然无放入顺序，但是元素在set中的位置是有该元素的HashCode决定的，其位置其实是固定的） </p>
-<p>List接口有三个实现类：</p>
-<p>LinkedList，ArrayList，Vector<br>LinkedList：底层基于链表实现，链表内存是散乱的，每一个元素存储本身内存地址的同时还存储下一个元素的地址。链表增删快，查找慢<br>ArrayList和Vector的区别：ArrayList是非线程安全的，效率高；Vector是基于线程安全的，效率低 </p>
-<p>Set接口有两个实现类：</p>
-<p>HashSet(底层由HashMap实现)，LinkedHashSet<br>SortedSet接口有一个实现类：TreeSet（底层由平衡二叉树实现）<br>Query接口有一个实现类：LinkList </p>
-<p>Map接口有三个实现类：</p>
-<p>HashMap，HashTable，LinkeHashMap<br>HashMap非线程安全，高效，支持null；HashTable线程安全，低效，不支持null<br>SortedMap有一个实现类：TreeMap </p>
-<p>其实最主要的是，list是用来处理序列的，而set是用来处理集的。Map是知道的，存储的是键值对 </p>
-<p>set 一般无序不重复.map kv 结构 list 有序 </p>
-
+<p>　　│　└Stack<br>
+        
+          <a class="article-more-a" href="/2018/01/20/List-Set-Map-区别/#more">More >></a>
+        
       
 
       

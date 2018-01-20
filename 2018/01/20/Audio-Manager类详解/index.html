@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://wenergou.top/2018/01/20/Audio-Manager类详解/index.html">
 <meta property="og:site_name" content="温二狗">
 <meta property="og:description" content="AudioManager类位于android.Media 包中，该类提供访问控制音量和钤声模式的操作。  通过getSystemService(Context.AUDIO_SERVICE)方法获得AudioManager实例对象。 AudioManager audiomanage = (AudioManager)context.getSystemService(Context.AUDIO_SERV">
-<meta property="og:updated_time" content="2018-01-20T07:45:44.000Z">
+<meta property="og:updated_time" content="2018-01-20T18:14:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Audio Manager类详解">
 <meta name="twitter:description" content="AudioManager类位于android.Media 包中，该类提供访问控制音量和钤声模式的操作。  通过getSystemService(Context.AUDIO_SERVICE)方法获得AudioManager实例对象。 AudioManager audiomanage = (AudioManager)context.getSystemService(Context.AUDIO_SERV">
@@ -202,7 +202,7 @@
 <p>audiomanager就是我们定义的控制系统声音的对象。</p>
 <p> 这里只讲述几个比较常用到的方法： </p>
 <p>adjustVolume(int direction, int flags) ——用来控制手机音量大小，当传入的第一个参数为AudioManager.ADJUST_LOWER 时，可将音量调小一个单位，传入AudioManager.ADJUST_RAISE时，则可以将音量调大一个单位。 </p>
-<p>adjustStreamVolume(int streamType, int direction, intflags)——（以步长）调节手机音量大小<br> 参数1：声音类型，可取为STREAM_VOICE_CALL（通话）、STREAM_SYSTEM（系统声音）、STREAM_RING（铃声）、STREAM_MUSIC（音乐）、STREAM_ALARM（闹铃声）<br> 参数2：调整音量的方向，可取ADJUST_LOWER（降低）、ADJUST_RAISE（升高）、ADJUST_SAME<br> 参数3：可选的标志位 </p>
+<p>adjustStreamVolume(int streamType, int direction, intflags)——（以步长）调节手机音量大小<br> 参数1：声音类型，可取为STREAM_VOICE_CALL（通话）、STREAM_SYSTEM（系统声音）、STREAM_RING（铃声）、STREAM_MUSIC（音乐）、STREAM_ALARM（闹铃声）<br> 参数2：调整音量的方向，可取ADJUST_LOWER（降低）、ADJUST_RAISE（升高）、ADJUST_SAME<br> 参数3：可选的标志位<br> <a id="more"></a></p>
 <p>setStreamVolume(int streamType, int index, intflags)——直接设置音量大小 </p>
 <p>getMode() ——返回当前音频模式，如 NORMAL（普通）, RINGTONE（铃声）, orIN_CALL（通话） </p>
 <p>setMode()——设置声音模式，可取值NORMAL（普通）, RINGTONE（铃声）, or IN_CALL（通话） </p>
